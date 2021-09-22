@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /logo.jpeg
+heroImage: /banner.jpeg
 heroText: 张全明的笔记
 tagline: 主要记录一些前端的学习和总结
 actionText: 立即进入 →
