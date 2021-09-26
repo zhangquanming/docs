@@ -1,10 +1,10 @@
 ---
 home: true
-heroImage: /banner.jpeg
-heroText: 张全明的笔记
-tagline: 主要记录一些前端的学习和总结
+heroImage: /assets/banner.jpeg
+heroText: 前端学习总结
+tagline: 不积跬步无以至千里
 actionText: 立即进入 →
-actionLink: /
+actionLink: /summary/
 # features:
 #   - title: 简洁至上
 #     details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。
