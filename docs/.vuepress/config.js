@@ -13,8 +13,7 @@ module.exports = {
   serviceWorker: false,
   themeConfig: {
     repo: 'zhangquanming/docs',
-    docsDir: 'docs',
-    lastUpdated: '上次更新',
+    lastUpdated: '最后更新',
     nav: [
       {
         text: '首页',
