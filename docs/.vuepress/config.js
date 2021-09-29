@@ -41,15 +41,16 @@ module.exports = {
           title: 'CSS 相关',
           collapsable: false,
           children: [
-            ['CSS/CSS基础知识', 'CSS基础知识'],
-            ['CSS/常见布局方式', '常见布局方式'],
+            ['css/CSS基础知识', 'CSS基础知识'],
+            ['css/常见布局方式', '常见布局方式'],
           ]
         },
         {
           title: 'JavaScript 相关',
           collapsable: false,
           children: [
-            'JavaScript/'
+            ['javascript/执行上下文(EC)', '执行上下文(EC)'],
+            ['javascript/节流与防抖', '节流与防抖'],
           ]
         }
       ]
