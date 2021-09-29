@@ -13,7 +13,7 @@ module.exports = {
   serviceWorker: false,
   themeConfig: {
     repo: 'zhangquanming/docs',
-    lastUpdated: '最后更新',
+    lastUpdated: 'Last Updated',
     nav: [
       {
         text: '首页',
@@ -41,7 +41,8 @@ module.exports = {
           title: 'CSS 相关',
           collapsable: false,
           children: [
-            'CSS/'
+            ['CSS/CSS基础知识', 'CSS基础知识'],
+            ['CSS/常见布局方式', '常见布局方式'],
           ]
         },
         {
