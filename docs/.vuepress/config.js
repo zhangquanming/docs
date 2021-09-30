@@ -12,6 +12,7 @@ module.exports = {
   ],
   serviceWorker: false,
   themeConfig: {
+    sidebarDepth: 2,
     repo: 'zhangquanming/docs',
     lastUpdated: 'Last Updated',
     nav: [
@@ -49,8 +50,7 @@ module.exports = {
           title: 'JavaScript 相关',
           collapsable: false,
           children: [
-            ['javascript/执行上下文(EC)', '执行上下文(EC)'],
-            ['javascript/节流与防抖', '节流与防抖'],
+            ['javascript/', 'JavaScript基础知识'],
           ]
         }
       ]
