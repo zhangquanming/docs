@@ -256,3 +256,94 @@ function throttle(fn, wait, immediate) {
     }
 }
 ```
+
+## 函数执行改变this
+
+由于 JS 的设计原理: 在函数中，可以引用运行环境中的变量。因此就需要一个机制来让我们可以在函数体内部获取当前的运行环境，这便是 `this`。
+
+要明白 `this` 指向，其实就是要搞清楚 函数的运行环境，实际就是谁调用了函数。例如:
+
++ `obj.fn()`，便是 `obj` 调用了函数，既函数中的 `this === obj`
++ `fn()`，这里可以看成 `window.fn()`，因此 `this === window`
+
+但这种机制并不完全能满足我们的业务需求，因此提供了三种方式可以手动修改 `this` 的指向:
+
++ `call: fn.call(target, 1, 2)`
++ `apply: fn.apply(target, [1, 2])`
++ `bind: fn.bind(target)(1,2)`
+
+## ES6/ES7
+
+由于 Babel 的强大和普及，现在 ES6/ES7 基本上已经是现代化开发的必备了。通过新的语法糖，能让代码整体更为简洁和易读。
+
++ 声明
+  + `let / const`: 块级作用域、不存在变量提升、暂时性死区、不允许重复声明
+  + `const`: 声明常量，无法修改
++ 解构赋值
++ `class / extend`: 类声明与继承
++ `Set / Map`: 新的数据结构
++ 异步解决方案:
+  + `Promise` 的使用与实现
+  + `generator` :
+    + yield: 暂停代码
+    + next(): 继续执行代码
+  + `await / async`: 是 `generator` 的语法糖， babel中是基于 `promise` 实现
+
+## AST
+
+ **抽象语法树 (Abstract Syntax Tree)**，是将代码逐字母解析成 **树状对象** 的形式。这是语言之间的转换、代码语法检查，代码风格检查，代码格式化，代码高亮，代码错误提示，代码自动补全等等的基础。
+
+## babel编译原理
+
++ babylon 将 ES6/ES7 代码解析成 AST
++ babel-traverse 对 AST 进行遍历转译，得到新的 AST
++ 新 AST 通过 babel-generator 转换成 ES5
+
+## 函数柯里化
+
+在一个函数中，首先填充几个参数，然后再返回一个新的函数的技术，称为函数的柯里化。通常可用于在不侵入函数的前提下，为函数 **预置通用参数**，供多次重复调用。
+
+```js
+const add = function add(x) {
+	return function (y) {
+		return x + y
+	}
+}
+
+const add1 = add(1)
+
+add1(2) === 3
+add1(20) === 21
+```
+ 
+## 数组(Array) 常用方法
+
++ `map` : 遍历数组，返回回调返回值组成的新数组
++ `forEach`: 无法 `break`，可以用 `try/catch` 中 `throw new Error` 来停止
++ `filter` : 过滤
++ `some`: 有一项返回 `true`，则整体为 `true`
++ `every` : 有一项返回 `false`，则整体为 `false`
++ `join` : 通过指定连接符生成字符串
++ `push / pop` : 末尾推入和弹出，改变原数组， `push` 返回数组长度, `pop` 返回原数组最后一项
++ `unshift / shift` : 头部推入和弹出，改变原数组，`unshift` 返回数组长度，`shift` 返回原数组第一项
++ `sort(fn) / reverse` : 排序与反转，改变原数组
++ `concat` : 连接数组，不影响原数组， 浅拷贝
++ `slice(start, end)` : 返回截断后的新数组，不改变原数组
++ `splice(start, number, value...)` : 返回删除元素组成的数组，`value` 为插入项，改变原数组
++ `indexOf / lastIndexOf(value, fromIndex)` : 查找数组项，返回对应的下标
++ `reduce / reduceRight(fn(prev, cur)， defaultPrev)` : 两两执行，`prev` 为上次化简函数的 `return` 值，`cur` 为当前值
+  + 当传入 `defaultPrev` 时，从第一项开始；
+  + 当未传入时，则为第二项
++ 数组乱序：
+```js
+var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+arr.sort(function () {
+    return Math.random() - 0.5;
+});
+```
++ 数组扁平化: flat: [1,[2,3]] --> [1, 2, 3]
+```js
+Array.prototype.flat = function() {
+    return this.toString().split(',').map(item => +item )
+}
+```
