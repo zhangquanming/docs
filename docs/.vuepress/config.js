@@ -52,6 +52,14 @@ module.exports = {
           children: [
             ['javascript/', 'JavaScript基础知识'],
           ]
+        },
+        {
+          title: '浏览器与网络',
+          collapsable: false,
+          children: [
+            ['http/浏览器.md', '浏览器'],
+            ['http/服务端与网络.md', '服务端与网络'],
+          ]
         }
       ]
     }
