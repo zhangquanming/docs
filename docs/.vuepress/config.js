@@ -60,6 +60,14 @@ module.exports = {
             ['http/浏览器.md', '浏览器'],
             ['http/服务端与网络.md', '服务端与网络'],
           ]
+        },
+        {
+          title: '前端框架',
+          collapsable: false,
+          children: [
+            ['framework/vue.md', 'Vue'],
+            ['framework/react.md', 'React'],
+          ]
         }
       ]
     }
