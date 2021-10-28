@@ -159,12 +159,24 @@ class Component extends React.Component {
 
 ## setState
 
+11
+
 ## HOC(高阶组件)
+
+11
 
 ## Redux
 
+1
+
 ## React Hooks
+
+1
 
 ## SSR
 
+1
+
 ## 函数式编程
+
+1
