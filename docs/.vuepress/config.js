@@ -82,7 +82,7 @@ module.exports = {
           title: '项目优化',
           collapsable: false,
           children: [
-            ['performance/index.md', '项目性能优化'],
+            ['performance/performance.md', '项目性能优化'],
           ]
         },
         {
