@@ -3,6 +3,7 @@ module.exports = {
   dest: 'dist',
   title: '张全明的笔记',
   description: '张全明的个人笔记',
+  port: 8000,
   head: [
     ['link', { rel: 'icon', href: `/logo.png` }],
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
@@ -67,6 +68,29 @@ module.exports = {
           children: [
             ['framework/vue.md', 'Vue'],
             ['framework/react.md', 'React'],
+            ['framework/Hybrid.md', 'Hybrid'],
+          ]
+        },
+        {
+          title: '构建工具',
+          collapsable: false,
+          children: [
+            ['bundler/webpack.md', 'Webpack'],
+          ]
+        },
+        {
+          title: '项目优化',
+          collapsable: false,
+          children: [
+            ['performance/index.md', '项目性能优化'],
+          ]
+        },
+        {
+          title: '全栈基础',
+          collapsable: false,
+          children: [
+            ['other/nginx.md', 'Nginx'],
+            ['other/docker.md', 'Docker'],
           ]
         }
       ]
