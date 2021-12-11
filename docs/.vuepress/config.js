@@ -26,6 +26,14 @@ module.exports = {
         link: '/summary/'
       },
       {
+        text: '手写代码',
+        link: '/code/'
+      },
+      {
+        text: '面试题',
+        link: '/interview/'
+      },
+      {
         text: '博客',
         link: 'https://www.mingme.net/'
       },
@@ -93,7 +101,25 @@ module.exports = {
             ['other/docker.md', 'Docker'],
           ]
         }
-      ]
+      ],
+      '/code/': [
+        {
+          title: '手写代码',
+          collapsable: false,
+          children: [
+            ''
+          ]
+        },
+      ],
+      '/interview/': [
+        {
+          title: '面试题',
+          collapsable: false,
+          children: [
+            ''
+          ]
+        },
+      ],
     }
   }
 }
