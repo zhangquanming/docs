@@ -26,6 +26,10 @@ module.exports = {
         link: '/summary/'
       },
       {
+        text: '常用工具类',
+        link: '/utils/'
+      },
+      {
         text: '博客',
         link: 'https://www.mingme.net/'
       },
@@ -93,6 +97,16 @@ module.exports = {
             ['other/docker.md', 'Docker'],
           ]
         }
+      ],
+      '/utils/': [
+        {
+          title: '类型判断',
+          collapsable: false,
+          displayAllHeaders: true,
+          children: [
+            ''
+          ]
+        },
       ]
     }
   }
