@@ -26,7 +26,7 @@ module.exports = {
         link: '/summary/'
       },
       {
-        text: '常用工具类',
+        text: '工具类',
         link: '/utils/'
       },
       {
@@ -40,7 +40,7 @@ module.exports = {
           title: '前言',
           collapsable: false,
           children: [
-            ''
+            '',
           ]
         },
         {
@@ -100,9 +100,7 @@ module.exports = {
       ],
       '/utils/': [
         {
-          title: '类型判断',
           collapsable: false,
-          displayAllHeaders: true,
           children: [
             ''
           ]
