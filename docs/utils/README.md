@@ -642,3 +642,1081 @@ getDayOfYearWeek(time) {
   return Math.ceil(numdays / 7);
 }
 ```
+
+## Array
+
+### contains
+
+```js
+/**
+ * @description 判断一个元素是否在属猪中
+ * @param  {Array} arr 数组
+ * @param  {String} val 回调函数
+ * @return {Boolean}
+ */
+contains(arr, val) {
+  return arr.indexOf(val) != -1 ? true : false;
+}
+```
+
+### sort
+
+```js
+/**
+ * @description 排序
+ * @param  {Array} arr
+ * @param  {Number} type 1：从小到大   2：从大到小   3：随机
+ * @return {Array}
+ */
+sort(arr, type = 1) {
+  return arr.sort((a, b) => {
+    switch (type) {
+      case 1:
+        return a - b;
+      case 2:
+        return b - a;
+      case 3:
+        return Math.random() - 0.5;
+      default:
+        return arr;
+    }
+  })
+}
+```
+
+### unique
+
+```js
+/**
+* @description 去重
+* @param  {Array} arr
+* @return {Array}
+*/
+unique(arr) {
+  if (Array.hasOwnProperty('from')) {
+    return Array.from(new Set(arr));
+  } else {
+    var n = {}, r = [];
+    for (var i = 0; i < arr.length; i++) {
+      if (!n[arr[i]]) {
+        n[arr[i]] = true;
+        r.push(arr[i]);
+      }
+    }
+    return r;
+  }
+  // 注：上面 else 里面的排重并不能区分 2 和 '2'，但能减少用indexOf带来的性能,暂时没找到替代的方法。。。
+  /* 正确排重
+  if ( Array.hasOwnProperty('from') ) {
+      return Array.from(new Set(arr))
+  }else{
+      var r = [], NaNBol = true
+      for(var i=0; i < arr.length; i++) {
+          if (arr[i] !== arr[i]) {
+              if (NaNBol && r.indexOf(arr[i]) === -1) {
+                  r.push(arr[i])
+                  NaNBol = false
+              }
+          }else{
+              if(r.indexOf(arr[i]) === -1) r.push(arr[i])
+          }
+      }
+      return r
+  }
+
+   */
+}
+```
+
+### union
+
+```js
+/**
+* @description 求两个集合的并集
+* @param  {Array} a
+* @param  {Array} b
+* @return {Array}
+*/
+union(a, b) {
+  var newArr = a.concat(b);
+  return this.unique(newArr);
+}
+```
+
+### intersect
+
+```js
+/**
+* @description 求两个集合的交集
+* @param  {Array} a
+* @param  {Array} b
+* @return {Array}
+*/
+intersect(a, b) {
+  var _this = this;
+  a = this.unique(a);
+  return this.map(a, function (o) {
+    return _this.contains(b, o) ? o : null;
+  });
+}
+
+```
+
+### remove
+
+```js
+/**
+* @description 删除其中一个元素
+* @param  {Array} arr
+* @param  {String | Number} ele
+* @return {Array}
+*/
+remove(arr, ele) {
+  var index = arr.indexOf(ele);
+  if (index > -1) {
+    arr.splice(index, 1);
+  }
+  return arr;
+}
+```
+
+### formArray
+
+```js
+/**
+* @description 将类数组转换为数组的方法
+* @param  {Array} arr
+* @return {Array}
+*/
+formArray(ary) {
+  var arr = [];
+  if (Array.isArray(ary)) {
+    arr = ary;
+  } else {
+    arr = Array.prototype.slice.call(ary);
+  };
+  return arr;
+}
+```
+
+### max
+
+```js
+/**
+* @description 最大值
+* @param  {Array} arr
+* @return {Number}
+*/
+max(arr) {
+  return Math.max.apply(null, arr);
+}
+```
+
+### min
+
+```js
+/**
+* @description 最小值
+* @param  {Array} arr
+* @return {Number}
+*/
+min(arr) {
+  return Math.min.apply(null, arr);
+}
+
+```
+
+### sum
+
+```js
+/**
+* @description 求和
+* @param  {Array} arr
+* @return {Number}
+*/
+sum(arr) {
+  return arr.reduce((pre, cur) => {
+    return pre + cur
+  })
+}
+```
+
+### average
+
+```js
+/**
+* @description 平均值
+* @param  {Array} arr
+* @return {Number}
+*/
+average(arr) {
+  return this.sum(arr) / arr.length
+}
+```
+
+## String
+
+### trim
+
+```js
+/**
+ * @description 去除空格
+ * @param  {String} str
+ * @param  {NUmber} type:  1-所有空格 / 2-前后空格 / 3-前空格 / 4-后空格
+ * @return {String}
+ */
+trim(str, type) {
+  type = type || 1
+  switch (type) {
+    case 1:
+      return str.replace(/\s+/g, "");
+    case 2:
+      return str.replace(/(^\s*)|(\s*$)/g, "");
+    case 3:
+      return str.replace(/(^\s*)/g, "");
+    case 4:
+      return str.replace(/(\s*$)/g, "");
+    default:
+      return str;
+  }
+}
+```
+
+### changeCase
+
+```js
+/**
+* @description 大小写转换
+* @param  {String} str
+* @param  {Number} type:  1:首字母大写  2：首页母小写  3：大小写转换  4：全部大写  5：全部小写
+* @return {String}
+*/
+changeCase(str, type) {
+  type = type || 4
+  switch (type) {
+    case 1:
+      return str.replace(/\b\w+\b/g, function (word) {
+        return word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
+
+      });
+    case 2:
+      return str.replace(/\b\w+\b/g, function (word) {
+        return word.substring(0, 1).toLowerCase() + word.substring(1).toUpperCase();
+      });
+    case 3:
+      return str.split('').map(function (word) {
+        if (/[a-z]/.test(word)) {
+          return word.toUpperCase();
+        } else {
+          return word.toLowerCase()
+        }
+      }).join('')
+    case 4:
+      return str.toUpperCase();
+    case 5:
+      return str.toLowerCase();
+    default:
+      return str;
+  }
+}
+```
+
+### checkPwd
+
+```js
+/**
+* @description 检测密码强度
+* @param  {String} str
+* @return {Number}
+*/
+checkPwd(str) {
+  var Lv = 0;
+  if (str.length < 6) {
+    return Lv
+  }
+  if (/[0-9]/.test(str)) {
+    Lv++
+  }
+  if (/[a-z]/.test(str)) {
+    Lv++
+  }
+  if (/[A-Z]/.test(str)) {
+    Lv++
+  }
+  if (/[\.|-|_]/.test(str)) {
+    Lv++
+  }
+  return Lv;
+}
+```
+
+### filterTag
+
+```js
+/**
+* @description 过滤html代码(把<>转换)
+* @param  {String} str
+* @return {String}
+*/
+filterTag(str) {
+  str = str.replace(/&/ig, "&amp;");
+  str = str.replace(/</ig, "&lt;");
+  str = str.replace(/>/ig, "&gt;");
+  str = str.replace(" ", "&nbsp;");
+  return str;
+}
+```
+
+## Number
+
+### random
+
+```js
+/**
+ * @description: 随机数范围
+ * @param {Number} min
+ * @param {Number} max
+ * @return {Number | null}
+ */
+random(min, max) {
+  if (arguments.length === 2) {
+    return Math.floor(min + Math.random() * ((max + 1) - min))
+  } else {
+    return null;
+  }
+}
+```
+
+### numberToChinese
+
+```js
+/**
+ * @description: 将数字翻译成中文大写
+ * @param {Number} num
+ * @return {String}
+ */
+numberToChinese(num) {
+  var AA = new Array("零", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十");
+  var BB = new Array("", "十", "百", "仟", "萬", "億", "点", "");
+  var a = ("" + num).replace(/(^0*)/g, "").split("."),
+    k = 0,
+    re = "";
+  for (var i = a[0].length - 1; i >= 0; i--) {
+    switch (k) {
+      case 0:
+        re = BB[7] + re;
+        break;
+      case 4:
+        if (!new RegExp("0{4}//d{" + (a[0].length - i - 1) + "}$")
+          .test(a[0]))
+          re = BB[4] + re;
+        break;
+      case 8:
+        re = BB[5] + re;
+        BB[7] = BB[5];
+        k = 0;
+        break;
+    }
+    if (k % 4 == 2 && a[0].charAt(i + 2) != 0 && a[0].charAt(i + 1) == 0)
+      re = AA[0] + re;
+    if (a[0].charAt(i) != 0)
+      re = AA[a[0].charAt(i)] + BB[k % 4] + re;
+    k++;
+  }
+
+  if (a.length > 1) // 加上小数部分(如果有小数部分)
+  {
+    re += BB[6];
+    for (var i = 0; i < a[1].length; i++)
+      re += AA[a[1].charAt(i)];
+  }
+  if (re == '一十')
+    re = "十";
+  if (re.match(/^一/) && re.length == 3)
+    re = re.replace("一", "");
+  return re;
+}
+```
+
+### changeToChinese
+
+```js
+/**
+ * @description: 将数字转换为大写金额
+ * @param {Number} Num
+ * @return {String}
+ */
+changeToChinese(Num) {
+  //判断如果传递进来的不是字符的话转换为字符
+  if (typeof Num == "number") {
+    Num = new String(Num);
+  };
+  Num = Num.replace(/,/g, "") //替换tomoney()中的“,”
+  Num = Num.replace(/ /g, "") //替换tomoney()中的空格
+  Num = Num.replace(/￥/g, "") //替换掉可能出现的￥字符
+  if (isNaN(Num)) { //验证输入的字符是否为数字
+    //alert("请检查小写金额是否正确");
+    return "";
+  };
+  //字符处理完毕后开始转换，采用前后两部分分别转换
+  var part = String(Num).split(".");
+  var newchar = "";
+  //小数点前进行转化
+  for (var i = part[0].length - 1; i >= 0; i--) {
+    if (part[0].length > 10) {
+      return "";
+      //若数量超过拾亿单位，提示
+    }
+    var tmpnewchar = ""
+    var perchar = part[0].charAt(i);
+    switch (perchar) {
+      case "0":
+        tmpnewchar = "零" + tmpnewchar;
+        break;
+      case "1":
+        tmpnewchar = "壹" + tmpnewchar;
+        break;
+      case "2":
+        tmpnewchar = "贰" + tmpnewchar;
+        break;
+      case "3":
+        tmpnewchar = "叁" + tmpnewchar;
+        break;
+      case "4":
+        tmpnewchar = "肆" + tmpnewchar;
+        break;
+      case "5":
+        tmpnewchar = "伍" + tmpnewchar;
+        break;
+      case "6":
+        tmpnewchar = "陆" + tmpnewchar;
+        break;
+      case "7":
+        tmpnewchar = "柒" + tmpnewchar;
+        break;
+      case "8":
+        tmpnewchar = "捌" + tmpnewchar;
+        break;
+      case "9":
+        tmpnewchar = "玖" + tmpnewchar;
+        break;
+    }
+    switch (part[0].length - i - 1) {
+      case 0:
+        tmpnewchar = tmpnewchar + "元";
+        break;
+      case 1:
+        if (perchar != 0) tmpnewchar = tmpnewchar + "拾";
+        break;
+      case 2:
+        if (perchar != 0) tmpnewchar = tmpnewchar + "佰";
+        break;
+      case 3:
+        if (perchar != 0) tmpnewchar = tmpnewchar + "仟";
+        break;
+      case 4:
+        tmpnewchar = tmpnewchar + "万";
+        break;
+      case 5:
+        if (perchar != 0) tmpnewchar = tmpnewchar + "拾";
+        break;
+      case 6:
+        if (perchar != 0) tmpnewchar = tmpnewchar + "佰";
+        break;
+      case 7:
+        if (perchar != 0) tmpnewchar = tmpnewchar + "仟";
+        break;
+      case 8:
+        tmpnewchar = tmpnewchar + "亿";
+        break;
+      case 9:
+        tmpnewchar = tmpnewchar + "拾";
+        break;
+    }
+    var newchar = tmpnewchar + newchar;
+  }
+  //小数点之后进行转化
+  if (Num.indexOf(".") != -1) {
+    if (part[1].length > 2) {
+      // alert("小数点之后只能保留两位,系统将自动截断");
+      part[1] = part[1].substr(0, 2)
+    }
+    for (i = 0; i < part[1].length; i++) {
+      tmpnewchar = ""
+      perchar = part[1].charAt(i)
+      switch (perchar) {
+        case "0":
+          tmpnewchar = "零" + tmpnewchar;
+          break;
+        case "1":
+          tmpnewchar = "壹" + tmpnewchar;
+          break;
+        case "2":
+          tmpnewchar = "贰" + tmpnewchar;
+          break;
+        case "3":
+          tmpnewchar = "叁" + tmpnewchar;
+          break;
+        case "4":
+          tmpnewchar = "肆" + tmpnewchar;
+          break;
+        case "5":
+          tmpnewchar = "伍" + tmpnewchar;
+          break;
+        case "6":
+          tmpnewchar = "陆" + tmpnewchar;
+          break;
+        case "7":
+          tmpnewchar = "柒" + tmpnewchar;
+          break;
+        case "8":
+          tmpnewchar = "捌" + tmpnewchar;
+          break;
+        case "9":
+          tmpnewchar = "玖" + tmpnewchar;
+          break;
+      }
+      if (i == 0) tmpnewchar = tmpnewchar + "角";
+      if (i == 1) tmpnewchar = tmpnewchar + "分";
+      newchar = newchar + tmpnewchar;
+    }
+  }
+  //替换所有无用汉字
+  while (newchar.search("零零") != -1)
+    newchar = newchar.replace("零零", "零");
+  newchar = newchar.replace("零亿", "亿");
+  newchar = newchar.replace("亿万", "亿");
+  newchar = newchar.replace("零万", "万");
+  newchar = newchar.replace("零元", "元");
+  newchar = newchar.replace("零角", "");
+  newchar = newchar.replace("零分", "");
+  if (newchar.charAt(newchar.length - 1) == "元") {
+    newchar = newchar + "整"
+  }
+  return newchar;
+}
+```
+
+## Http
+
+### ajax
+
+```js
+/**
+ * @param  {setting}
+ */
+ajax(setting){
+  //设置参数的初始值
+  var opts = {
+    method: (setting.method || "GET").toUpperCase(), //请求方式
+    url: setting.url || "", // 请求地址
+    async: setting.async || true, // 是否异步
+    dataType: setting.dataType || "json", // 解析方式
+    data: setting.data || "", // 参数
+    success: setting.success || function () { }, // 请求成功回调
+    error: setting.error || function () { } // 请求失败回调
+  }
+
+  // 参数格式化
+  function params_format (obj) {
+    var str = ''
+    for (var i in obj) {
+      str += i + '=' + obj[i] + '&'
+    }
+    return str.split('').slice(0, -1).join('')
+  }
+
+  // 创建ajax对象
+  var xhr = new XMLHttpRequest();
+
+  // 连接服务器open(方法GET/POST，请求地址， 异步传输)
+  if (opts.method == 'GET') {
+    xhr.open(opts.method, opts.url + "?" + params_format(opts.data), opts.async);
+    xhr.send();
+  } else {
+    xhr.open(opts.method, opts.url, opts.async);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send(opts.data);
+  }
+
+  /*
+  ** 每当readyState改变时，就会触发onreadystatechange事件
+  ** readyState属性存储有XMLHttpRequest的状态信息
+  ** 0 ：请求未初始化
+  ** 1 ：服务器连接已建立
+  ** 2 ：请求已接受
+  ** 3 : 请求处理中
+  ** 4 ：请求已完成，且相应就绪
+  */
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && (xhr.status === 200 || xhr.status === 304)) {
+      switch (opts.dataType) {
+        case "json":
+          var json = JSON.parse(xhr.responseText);
+          opts.success(json);
+          break;
+        case "xml":
+          opts.success(xhr.responseXML);
+          break;
+        default:
+          opts.success(xhr.responseText);
+          break;
+      }
+    }
+  }
+
+  xhr.onerror = function (err) {
+    opts.error(err);
+  }
+}
+```
+
+### fetch
+
+```js
+/**
+* @param  {url}
+* @param  {setting}
+* @return {Promise}
+*/
+fetch(url, setting) {
+  //设置参数的初始值
+  let opts = {
+    method: (setting.method || 'GET').toUpperCase(), //请求方式
+    headers: setting.headers || {}, // 请求头设置
+    credentials: setting.credentials || true, // 设置cookie是否一起发送
+    body: setting.body || {},
+    mode: setting.mode || 'no-cors', // 可以设置 cors, no-cors, same-origin
+    redirect: setting.redirect || 'follow', // follow, error, manual
+    cache: setting.cache || 'default' // 设置 cache 模式 (default, reload, no-cache)
+  }
+  let dataType = setting.dataType || "json", // 解析方式
+    data = setting.data || "" // 参数
+
+  // 参数格式化
+  function params_format (obj) {
+    var str = ''
+    for (var i in obj) {
+      str += `${i}=${obj[i]}&`
+    }
+    return str.split('').slice(0, -1).join('')
+  }
+
+  if (opts.method === 'GET') {
+    url = url + (data ? `?${params_format(data)}` : '')
+  } else {
+    setting.body = data || {}
+  }
+
+  return new Promise((resolve, reject) => {
+    fetch(url, opts).then(async res => {
+      let data = dataType === 'text' ? await res.text() :
+        dataType === 'blob' ? await res.blob() : await res.json()
+      resolve(data)
+    }).catch(e => {
+      reject(e)
+    })
+  })
+}
+```
+
+## DOM
+
+### \$
+
+```js
+/**
+ * @description: 获取元素选择器
+ * @param {String} selector
+ * @return {Ele}
+ */
+$(selector){
+  var type = selector.substring(0, 1);
+  if (type === '#') {
+    if (document.querySelecotor) return document.querySelector(selector)
+    return document.getElementById(selector.substring(1))
+
+  } else if (type === '.') {
+    if (document.querySelecotorAll) return document.querySelectorAll(selector)
+    return document.getElementsByClassName(selector.substring(1))
+  } else {
+    return document['querySelectorAll' ? 'querySelectorAll' : 'getElementsByTagName'](selector)
+  }
+}
+```
+
+### hasClass
+
+```js
+/**
+ * @description: 检测类名
+ * @param {Element} ele
+ * @param {String} name
+ * @return {Boolean}
+ */
+hasClass(ele, name) {
+  return ele.className.match(new RegExp('(\\s|^)' + name + '(\\s|$)'));
+}
+```
+
+### addClass
+
+```js
+/**
+ * @description: 添加类名
+ * @param {Element} ele
+ * @param {String} name
+ */
+addClass(ele, name) {
+  if (!this.hasClass(ele, name)) ele.className += " " + name;
+}
+```
+
+### removeClass
+
+```js
+/**
+ * @description: 删除类名
+ * @param {Element} ele
+ * @param {String} name
+ */
+removeClass(ele, name) {
+  if (this.hasClass(ele, name)) {
+    var reg = new RegExp('(\\s|^)' + name + '(\\s|$)');
+    ele.className = ele.className.replace(reg, '');
+  }
+}
+```
+
+### replaceClass
+
+```js
+/**
+ * @description: 替换类名
+ * @param {Element} ele
+ * @param {String} newName
+ * @param {String} oldName
+ */
+replaceClass(ele, newName, oldName) {
+  this.removeClass(ele, oldName);
+  this.addClass(ele, newName);
+}
+```
+
+### siblings
+
+```js
+/**
+ * @description: 获取兄弟节点
+ * @param {Element} ele
+ * @return {Elements}
+ */
+siblings(ele) {
+  console.log(ele.parentNode)
+  var chid = ele.parentNode.children, eleMatch = [];
+  for (var i = 0, len = chid.length; i < len; i++) {
+    if (chid[i] != ele) {
+      eleMatch.push(chid[i]);
+    }
+  }
+  return eleMatch;
+}
+```
+
+### getByStyle
+
+```js
+/**
+ * @description: 获取行间样式属性
+ * @param {Element} obj
+ * @param {String} name
+ * @return {Style}
+ */
+getByStyle(obj, name){
+  if (obj.currentStyle) {
+    return obj.currentStyle[name];
+  } else {
+    return getComputedStyle(obj, false)[name];
+  }
+}
+```
+
+## Storage 储存操作
+
+```js
+class StorageFn {
+  constructor() {
+    this.ls = window.localStorage
+    this.ss = window.sessionStorage
+  }
+
+  /*-----------------cookie---------------------*/
+  /*设置cookie*/
+  setCookie(name, value, day) {
+    var setting = arguments[0]
+    if (Object.prototype.toString.call(setting).slice(8, -1) === 'Object') {
+      for (var i in setting) {
+        var oDate = new Date()
+        oDate.setDate(oDate.getDate() + day)
+        document.cookie = i + '=' + setting[i] + ';expires=' + oDate
+      }
+    } else {
+      var oDate = new Date()
+      oDate.setDate(oDate.getDate() + day)
+      document.cookie = name + '=' + value + ';expires=' + oDate
+    }
+  }
+
+  /*获取cookie*/
+  getCookie(name) {
+    var arr = document.cookie.split('; ')
+    for (var i = 0; i < arr.length; i++) {
+      var arr2 = arr[i].split('=')
+      if (arr2[0] == name) {
+        return arr2[1]
+      }
+    }
+    return ''
+  }
+
+  /*删除cookie*/
+  removeCookie(name) {
+    this.setCookie(name, 1, -1)
+  }
+
+  /*-----------------localStorage---------------------*/
+  /*设置localStorage*/
+  setLocal(key, val) {
+    var setting = arguments[0]
+    if (Object.prototype.toString.call(setting).slice(8, -1) === 'Object') {
+      for (var i in setting) {
+        this.ls.setItem(i, JSON.stringify(setting[i]))
+      }
+    } else {
+      this.ls.setItem(key, JSON.stringify(val))
+    }
+  }
+
+  /*获取localStorage*/
+  getLocal(key) {
+    if (key) return JSON.parse(this.ls.getItem(key))
+    return null
+  }
+
+  /*移除localStorage*/
+  removeLocal(key) {
+    this.ls.removeItem(key)
+  }
+
+  /*移除所有localStorage*/
+  clearLocal() {
+    this.ls.clear()
+  }
+
+  /*-----------------sessionStorage---------------------*/
+  /*设置sessionStorage*/
+  setSession(key, val) {
+    var setting = arguments[0]
+    if (Object.prototype.toString.call(setting).slice(8, -1) === 'Object') {
+      for (var i in setting) {
+        this.ss.setItem(i, JSON.stringify(setting[i]))
+      }
+    } else {
+      this.ss.setItem(key, JSON.stringify(val))
+    }
+  }
+
+  /*获取sessionStorage*/
+  getSession(key) {
+    if (key) return JSON.parse(this.ss.getItem(key))
+    return null
+  }
+
+  /*移除sessionStorage*/
+  removeSession(key) {
+    this.ss.removeItem(key)
+  }
+
+  /*移除所有sessionStorage*/
+  clearSession() {
+    this.ss.clear()
+  }
+}
+```
+
+## 其他操作
+
+### getURL
+
+```js
+/**
+ * @description: 获取网址的某个参数值
+ * @param {String} name
+ * @return {String | Null}
+ */
+getURL(name){
+  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+  var r = decodeURI(window.location.search).substr(1).match(reg);
+  if (r != null) return r[2]; return null;
+}
+```
+
+### getUrlAllParams
+
+```js
+/**
+ * @description: 获取全部 url参数
+ * @param {String} url
+ * @return {Object}
+ */
+getUrlAllParams(url) {
+  var url = url ? url : window.location.href;
+  var _pa = url.substring(url.indexOf('?') + 1),
+    _arrS = _pa.split('&'),
+    _rs = {};
+  for (var i = 0, _len = _arrS.length; i < _len; i++) {
+    var pos = _arrS[i].indexOf('=');
+    if (pos == -1) {
+      continue;
+    }
+    var name = _arrS[i].substring(0, pos),
+      value = window.decodeURIComponent(_arrS[i].substring(pos + 1));
+    _rs[name] = value;
+  }
+  return _rs;
+}
+
+```
+
+### delParamsUrl
+
+```js
+/**
+ * @description: 删除 url指定参数，返回 url
+ * @param {String} url
+ * @param {String} name
+ * @return {string} url
+ */
+delParamsUrl(url, name){
+  var baseUrl = url.split('?')[0] + '?';
+  var query = url.split('?')[1];
+  if (query.indexOf(name) > -1) {
+    var obj = {}
+    var arr = query.split("&");
+    for (var i = 0; i < arr.length; i++) {
+      arr[i] = arr[i].split("=");
+      obj[arr[i][0]] = arr[i][1];
+    };
+    delete obj[name];
+    var url = baseUrl + JSON.stringify(obj).replace(/[\"\{\}]/g, "").replace(/\:/g, "=").replace(/\,/g, "&");
+    return url
+  } else {
+    return url;
+  }
+}
+```
+
+### getRandomColor
+
+```js
+/**
+ * @description: 随机获取十六进制颜色
+ * @return {String} color
+ */
+getRandomColor() {
+  return '#' + (function (h) {
+    return new Array(7 - h.length).join("0") + h;
+  })((Math.random() * 0x1000000 << 0).toString(16));
+}
+```
+
+### imgLoadAll
+
+```js
+/**
+ * @description: 图片加载
+ * @param {Array} arr
+ * @param {Function} callback
+ */
+imgLoadAll(arr, callback){
+  var arrImg = [];
+  for (var i = 0; i < arr.length; i++) {
+    var img = new Image();
+    img.src = arr[i];
+    img.onload = function () {
+      arrImg.push(this);
+      if (arrImg.length == arr.length) {
+        callback && callback();
+      }
+    }
+  }
+}
+```
+
+### loadAudio
+
+```js
+/**
+ * @description: 音频加载
+ * @param {String} src
+ * @param {Function} callback
+ */
+loadAudio(src, callback) {
+  var audio = new Audio(src);
+  audio.onloadedmetadata = callback;
+  audio.src = src;
+}
+```
+
+### setCursorPosition
+
+```js
+/**
+ * @description: 光标所在位置插入字符，并设置光标位置
+ * @param {Element} dom 输入框
+ * @param {String | Number} val 插入的值
+ * @param {Number} posLen 光标位置处在 插入的值的哪个位置
+ */
+setCursorPosition(dom, val, posLen) {
+  var cursorPosition = 0;
+  if (dom.selectionStart) {
+    cursorPosition = dom.selectionStart;
+  }
+  this.insertAtCursor(dom, val);
+  dom.focus();
+  console.log(posLen)
+  dom.setSelectionRange(dom.value.length, cursorPosition + (posLen || val.length));
+}
+```
+
+### insertAtCursor
+
+```js
+/**
+ * @description: 光标所在位置插入字符
+ * @param {Element} dom 输入框
+ * @param {String | Number} val 插入的值
+ */
+insertAtCursor(dom, val) {
+  if (document.selection) {
+    dom.focus();
+    sel = document.selection.createRange();
+    sel.text = val;
+    sel.select();
+  } else if (dom.selectionStart || dom.selectionStart == '0') {
+    let startPos = dom.selectionStart;
+    let endPos = dom.selectionEnd;
+    let restoreTop = dom.scrollTop;
+    dom.value = dom.value.substring(0, startPos) + val + dom.value.substring(endPos, dom.value.length);
+    if (restoreTop > 0) {
+      dom.scrollTop = restoreTop;
+    }
+    dom.focus();
+    dom.selectionStart = startPos + val.length;
+    dom.selectionEnd = startPos + val.length;
+  } else {
+    dom.value += val;
+    dom.focus();
+  }
+}
+```
