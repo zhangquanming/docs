@@ -1322,13 +1322,13 @@ fetch(url, setting) {
 
 ## DOM
 
-### \$
+### 选择器
 
 ```js
 /**
  * @description: 获取元素选择器
  * @param {String} selector
- * @return {Ele}
+ * @return {Element}
  */
 $(selector){
   var type = selector.substring(0, 1);
