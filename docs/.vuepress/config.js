@@ -30,6 +30,10 @@ module.exports = {
         link: '/utils/'
       },
       {
+        text: '手写代码',
+        link: '/code/'
+      },
+      {
         text: '博客',
         link: 'https://www.mingme.net/'
       },
@@ -44,7 +48,7 @@ module.exports = {
           ]
         },
         {
-          title: 'CSS 相关',
+          title: 'CSS',
           collapsable: false,
           children: [
             ['css/CSS基础知识', 'CSS基础知识'],
@@ -99,10 +103,16 @@ module.exports = {
         }
       ],
       '/utils/': [
+        ''
+      ],
+      '/code/': [
         {
+          title: '手写代码',
           collapsable: false,
           children: [
-            ''
+            '',
+            '防抖.md',
+            '节流.md'
           ]
         },
       ]
