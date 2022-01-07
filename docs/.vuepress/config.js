@@ -41,7 +41,7 @@ module.exports = {
     sidebar: {
       '/summary/': [
         {
-          title: '前言',
+          title: '知识总结',
           collapsable: false,
           children: [
             '',
