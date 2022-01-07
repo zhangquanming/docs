@@ -30,6 +30,10 @@ module.exports = {
         link: '/utils/'
       },
       {
+        text: '学习资料',
+        link: '/links/'
+      },
+      {
         text: '手写代码',
         link: '/code/'
       },
@@ -103,6 +107,9 @@ module.exports = {
         }
       ],
       '/utils/': [
+        ''
+      ],
+      '/links/': [
         ''
       ],
       '/code/': [
