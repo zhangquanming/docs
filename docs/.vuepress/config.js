@@ -55,8 +55,8 @@ module.exports = {
           title: 'CSS',
           collapsable: false,
           children: [
-            ['css/base', 'CSS基础知识'],
-            ['css/layout', '常见布局方式'],
+            ['css/base.md', 'CSS基础知识'],
+            ['css/layout.md', '常见布局方式'],
           ]
         },
         {
