@@ -55,8 +55,8 @@ module.exports = {
           title: 'CSS',
           collapsable: false,
           children: [
-            ['css/CSS基础知识', 'CSS基础知识'],
-            ['css/常见布局方式', '常见布局方式'],
+            ['css/base', 'CSS基础知识'],
+            ['css/layout', '常见布局方式'],
           ]
         },
         {
@@ -70,8 +70,8 @@ module.exports = {
           title: '浏览器与网络',
           collapsable: false,
           children: [
-            ['http/浏览器.md', '浏览器'],
-            ['http/服务端与网络.md', '服务端与网络'],
+            ['http/web.md', '浏览器'],
+            ['http/service.md', '服务端与网络'],
           ]
         },
         {
