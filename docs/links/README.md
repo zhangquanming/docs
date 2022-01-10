@@ -2,9 +2,15 @@
 
 ## CSS
 
-- [Rem 布局的原理解析](https://yanhaijing.com/css/2017/09/29/principle-of-rem-layout/)
-- [8 个硬核技巧带你迅速提升 CSS 技术](https://juejin.cn/post/6908879198933221383#heading-0)
+- [rem 布局的原理解析](https://yanhaijing.com/css/2017/09/29/principle-of-rem-layout/)
+- [8 个硬核技巧带你迅速提升 css 技术](https://juejin.cn/post/6908879198933221383#heading-0)
 - [你不可能知道的骨架屏玩法](https://juejin.cn/post/6994678354200756238)
+- [不可思议的纯 CSS 滚动进度条效果](https://juejin.cn/post/6844903758074216462)
+- [彻底搞懂 word-break、word-wrap、white-space](https://juejin.cn/post/6844903667863126030)
+- [CSS 性能优化的 8 个技巧](https://juejin.cn/post/6844903649605320711?utm_source=gold_browser_extension)
+- [Web 开发者需要知道的 CSS Tricks](https://juejin.cn/post/6844903576561516558)
+- [CSS 常用技巧](https://juejin.cn/post/6844903619909648398)
+- [干货!各种常见布局实现+知名网站实例分析](https://juejin.cn/post/6844903574929932301)
 
 ## JS
 
@@ -14,6 +20,7 @@
 - [看了就会，手写 Promise 原理，最通俗易懂的版本！！！](https://juejin.cn/post/6994594642280857630)
 - [这一次，彻底弄懂 JavaScript 执行机制](https://juejin.cn/post/6844903512845860872)
 - [由浅入深，66 条 JavaScript 面试知识点](https://juejin.cn/post/6844904200917221389)
+- [如何优雅处理前端异常？](https://zhuanlan.zhihu.com/p/51800345)
 
 ## Vue
 
@@ -30,19 +37,32 @@
 - [React.js 小书](https://www.bookstack.cn/read/react-naive-book/about.md)
 - [React 全部 api 解读+基础实践大全(夯实基础 2 万字总结)](https://juejin.cn/post/6950063294270930980)
 - [这可能是最通俗的 React Fiber(时间分片) 打开方式](https://juejin.cn/post/6844903975112671239)
+- [React 源码解析](https://zhuanlan.zhihu.com/p/28697362)
+- [React 源码剖析系列 － 生命周期的管理艺术](https://zhuanlan.zhihu.com/p/20312691)
+- [深入 React 的生命周期(上)：出生阶段(Mount)](https://zhuanlan.zhihu.com/p/30757059)
+- [深入 React 的生命周期(下)：更新(Update)](https://zhuanlan.zhihu.com/p/30971608)
+- [React 源码剖析系列 － 不可思议的 react diff](https://zhuanlan.zhihu.com/p/20346379)
+- [React 源码剖析系列 － 解密 setState](https://zhuanlan.zhihu.com/p/20328570)
+- [你真的理解 setState 吗？](https://zhuanlan.zhihu.com/p/39512941)
+- [React 中的高阶组件及其应用场景](https://juejin.cn/post/6844903782355042312)
 
 ## TS
 
+- [TypeScript 入门教程](https://ts.xcatliu.com/introduction/)
 - [一份不可多得的 TS 学习指南（1.8W 字）](https://juejin.cn/post/6872111128135073806)
 - [一文读懂 TypeScript 泛型及应用](https://juejin.cn/post/6844904184894980104)
 - [TypeScript 高级用法](https://juejin.cn/post/6926794697553739784)
 
 ## Node
 
--[《深入理解 Node.js：核心思想与源码分析》](https://yjhjstz.gitbooks.io/deep-into-node/content/)
+- [《深入理解 Node.js：核心思想与源码分析》](https://yjhjstz.gitbooks.io/deep-into-node/content/)
 
-## HTTP
+## 浏览器与 HTTP
 
+- [浏览器的渲染原理简介](https://coolshell.cn/articles/9666.html)
+- [浏览器的工作原理](https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/)
+- [经典面试题：从 URL 输入到页面展现到底发生什么？](https://zhuanlan.zhihu.com/p/57895541)
+- [jsonp 的原理与实现](https://segmentfault.com/a/1190000007665361)
 - [HTTP 缓存机制-NodeJS 一步一步试验](https://juejin.cn/post/6844904116972421128)
 
 ## 算法与数据结构
@@ -53,11 +73,17 @@
 ## 设计模式
 
 - [写给前端的设计模式](https://www.yuque.com/wubinhp/uxiv5i)
+- [设计模式这样学也太简单了吧！](https://juejin.cn/post/6953423646664687652?utm_source=gold_browser_extension)
 
 ## 性能优化
 
 - [写给中高级前端关于性能优化的 9 大策略和 6 大指标 | 网易四年实践](https://juejin.cn/post/6981673766178783262)
 - [聊一聊前端性能优化](https://juejin.cn/post/6911472693405548557)
+- [网站性能优化实战——从 12.67s 到 1.06s 的故事](https://juejin.cn/post/6844903655330562062)
+- [现代化懒加载的方式](https://juejin.cn/post/6844903559599751175)
+- [用 preload 预加载页面资源](https://juejin.cn/post/6844903562070196237)
+- [懒加载和预加载](https://juejin.cn/post/6844903614138286094)
+- [网页图片加载优化方案](https://zhuanlan.zhihu.com/p/33370207)
 
 ## 前端监控
 
@@ -70,21 +96,32 @@
 - [腾讯 CDC 团队：前端异常监控解决方案](https://mp.weixin.qq.com/s/W0i-Iu6nqkWttsGZ-RmOqw)
 - [从零开始搭建前端监控系统（一）——web 探针 sdk](https://juejin.cn/post/6844903953319067655#heading-3)
 
-## 工程化
+## webpack/babel
+
+- [手把手教你撸一个 Webpack Loader](https://juejin.cn/post/6844903555673882632)
+- [面试官: 你了解过 Babel 吗？写过 Babel 插件吗?](https://juejin.cn/post/6844903566809759758)
+- [手把手教你撸一个简易的 webpack](https://juejin.cn/post/6844903617971879949)
+- [带你走进 webpack 世界，成为 webpack 头号玩家。](https://juejin.cn/post/6844903588607557639)
+
+## 构建与工程化
 
 - [手把手带你入门前端工程化——超详细教程](https://juejin.cn/post/6892003555818143752)
 - [前端工程化实战 - 企业级 CLI 开发](https://juejin.cn/post/6982215543017193502)
-
-## 浏览器
-
-- [浏览器的渲染原理简介](https://coolshell.cn/articles/9666.html)
-- [浏览器的工作原理](https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/)
+- [大型项目前端架构浅谈（8000 字原创）](https://juejin.cn/post/6844903853859536903)
+- [前端构建秘籍](https://juejin.cn/post/6844903799736254477)
+- [前端同构渲染的思考与实践](https://juejin.cn/post/6844903792836608008)
 
 ## Git
 
 - [Git 教程（廖雪峰）](https://www.liaoxuefeng.com/wiki/896043488029600)
 - [图解 Git](http://marklodato.github.io/visual-git-guide/index-zh-cn.html)
 - [可视化 Git](https://learngitbranching.js.org/?demo=&locale=zh_CN)
+
+## 移动端
+
+- [移动端(手机端)页面自适应解决方案—rem 布局](https://segmentfault.com/a/1190000012225828)
+- [中高级前端必须注意的 40 条移动端 H5 坑位指南](https://juejin.cn/post/6921886428158754829)
+- [手机移动端 WEB 资源整合](https://www.400zi.com/6281.html)
 
 ## 小程序
 
