@@ -101,9 +101,12 @@
 ## webpack/babel
 
 - [手把手教你撸一个 Webpack Loader](https://juejin.cn/post/6844903555673882632)
-- [面试官: 你了解过 Babel 吗？写过 Babel 插件吗?](https://juejin.cn/post/6844903566809759758)
 - [手把手教你撸一个简易的 webpack](https://juejin.cn/post/6844903617971879949)
 - [带你走进 webpack 世界，成为 webpack 头号玩家。](https://juejin.cn/post/6844903588607557639)
+- [面试官: 你了解过 Babel 吗？写过 Babel 插件吗?](https://juejin.cn/post/6844903566809759758)
+- [不容错过的 Babel7 知识](https://juejin.cn/post/6844904008679686152)
+- [深入浅出 Babel 上篇：架构和原理 + 实战](https://juejin.cn/post/6844903956905197576)
+- [深入浅出 Babel 下篇：既生 Plugin 何生 Macros](https://juejin.cn/post/6844903961820921869)
 
 ## 构建与工程化
 
