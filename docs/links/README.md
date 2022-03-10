@@ -57,6 +57,8 @@
 - [[Vue 官方教程笔记]- 尤雨溪手写 mini-vue](https://juejin.cn/post/6911897255087702030)
 - [分享 8 个非常实用的 Vue 自定义指令](https://juejin.cn/post/6906028995133833230)
 - [服务端渲染 SSR 及实现原理](https://www.zoo.team/article/web-ssr)
+- [【阮一峰推荐】学习 vue3 源码的利器](https://juejin.cn/post/6925668019884523534)
+- [Vue3 源码解读(四)-compositionApi](https://juejin.cn/post/6893045604592418830)
 
 ## React
 
