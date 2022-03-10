@@ -181,6 +181,7 @@
 - [前端同构渲染的思考与实践](https://juejin.cn/post/6844903792836608008)
 - [vue 多工程间公共模块处理最佳实践](https://juejin.cn/post/6970309861502386184)
 - [现代前端工程为什么越来越离不开 Monorepo?](https://juejin.cn/post/6944877410827370504)
+- [Vue3 组件库工程化实战 --Element3](https://juejin.cn/post/6930879590554402830)
 
 ## Git
 
