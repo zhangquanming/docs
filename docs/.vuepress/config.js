@@ -119,7 +119,9 @@ module.exports = {
           children: [
             '',
             '防抖.md',
-            '节流.md'
+            '节流.md',
+            '浅比较与深比较.md',
+            '浅拷贝与深拷贝.md'
           ]
         },
       ]
