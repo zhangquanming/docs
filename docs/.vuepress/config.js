@@ -121,7 +121,10 @@ module.exports = {
             '防抖.md',
             '节流.md',
             '浅比较与深比较.md',
-            '浅拷贝与深拷贝.md'
+            '浅拷贝与深拷贝.md',
+            '实现Promise.md',
+            '实现new.md',
+            '实现instanceof.md'
           ]
         },
       ]
