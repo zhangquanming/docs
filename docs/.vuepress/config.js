@@ -122,9 +122,11 @@ module.exports = {
             '节流.md',
             '浅比较与深比较.md',
             '浅拷贝与深拷贝.md',
-            '实现Promise.md',
-            '实现new.md',
-            '实现instanceof.md'
+            'Promise.md',
+            'new.md',
+            'instanceof.md',
+            'compose.md',
+            '模拟setInterval.md'
           ]
         },
       ]
