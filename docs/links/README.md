@@ -84,6 +84,7 @@
 - [你真的理解 setState 吗？](https://zhuanlan.zhihu.com/p/39512941)
 - [React 中的高阶组件及其应用场景](https://juejin.cn/post/6844903782355042312)
 - [你不知道的 requestIdleCallback](https://zhuanlan.zhihu.com/p/60189423)
+- [React 运行时优化方案的演进](https://juejin.cn/post/7010539227284766751)
 
 ## Node
 
