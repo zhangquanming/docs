@@ -126,7 +126,8 @@ module.exports = {
             'new.md',
             'instanceof.md',
             'compose.md',
-            '模拟setInterval.md'
+            '模拟setInterval.md',
+            'call、apply、bind.md'
           ]
         },
       ]
