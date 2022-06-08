@@ -97,6 +97,7 @@
 
 **相关文献**
 
+- [深入理解 Node.js 进程与线程](https://mp.weixin.qq.com/s/VzXnnfn4gCBMd5wea3LRIg)
 - [《深入理解 Node.js：核心思想与源码分析》](https://yjhjstz.gitbooks.io/deep-into-node/content/)
 
 ## 浏览器与 HTTP
@@ -156,6 +157,7 @@
 
 **相关文献**
 
+- [做了一夜动画，让大家十分钟搞懂 Webpack](https://juejin.cn/post/6961961165656326152)
 - [手把手教你撸一个 Webpack Loader](https://juejin.cn/post/6844903555673882632)
 - [手把手教你撸一个简易的 webpack](https://juejin.cn/post/6844903617971879949)
 - [带你走进 webpack 世界，成为 webpack 头号玩家。](https://juejin.cn/post/6844903588607557639)

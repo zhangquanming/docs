@@ -127,7 +127,9 @@ module.exports = {
             'instanceof.md',
             'compose.md',
             '模拟setInterval.md',
-            'call、apply、bind.md'
+            'call、apply、bind.md',
+            '发布订阅模式.md',
+            '扁平数组与JSON树结构互转.md'
           ]
         },
       ]
