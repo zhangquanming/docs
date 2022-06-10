@@ -55,6 +55,7 @@
 - [101 张脑图，从零开始学完 Vue3（包括 Vue3.2 最新语法）](https://juejin.cn/post/7007710727725121566)
 - [实现最简 vue3 模型](https://github.com/cuixiaorui/mini-vue)
 - [[Vue 官方教程笔记]- 尤雨溪手写 mini-vue](https://juejin.cn/post/6911897255087702030)
+- [Vue3 的响应式和以前有什么区别，Proxy 无敌？](https://juejin.cn/post/6844904122479542285)
 - [分享 8 个非常实用的 Vue 自定义指令](https://juejin.cn/post/6906028995133833230)
 - [服务端渲染 SSR 及实现原理](https://www.zoo.team/article/web-ssr)
 - [【阮一峰推荐】学习 vue3 源码的利器](https://juejin.cn/post/6925668019884523534)
