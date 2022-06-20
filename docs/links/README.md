@@ -14,13 +14,6 @@
 
 ## JS
 
-**知识点**
-
-- ES6-ES12 新特性
-- 单线程下的 JavaScript 异步模式执行机制，根治此类面试题
-- JavaScript 处理异步任务的消息队列和事件循环，宏任务和微任务
-- JavaScript 自有类型系统的不足和解决方案
-
 **相关文献**
 
 - [ES6 入门教程（阮一峰）](https://es6.ruanyifeng.com/)
@@ -40,14 +33,6 @@
 
 ## Vue
 
-**知识点**
-
-- Vue Router、Vuex 等 Vue.js 生态下主要库的实现原理、手写源码
-- 理解虚拟 DOM 机制，掌握 Diff 算法的实现原理及工作过程
-- 理解 Vue.js 的整体实现过程及相关源码、响应式机制、模板编译、组件实现机制
-- 如何开发符合企业个性化需求的 Vue.js 组件库
-- Vue3.0 新语法 reactive/ref/effect、组合式 API
-
 **相关文献**
 
 - [Vue3 相关生态](https://vue3js.cn/)
@@ -62,14 +47,6 @@
 - [Vue3 源码解读(四)-compositionApi](https://juejin.cn/post/6893045604592418830)
 
 ## React
-
-**知识点**
-
-- React 设计思想及优势，为什么大厂偏爱 React 技术栈
-- React 框架下 Virtual DOM 实现原理与 Vue.js 框架的差异点
-- React 框架中的调度算法： Fiber、requestIdleCallback API
-- 大型 React 项目中的数据流管理方案 Redux 和 Mobx
-- 理解 Redux 核心模块实现原理，掌握手写 Redux 核心模块源码
 
 **相关文献**
 
@@ -88,13 +65,6 @@
 - [React 运行时优化方案的演进](https://juejin.cn/post/7010539227284766751)
 
 ## Node
-
-**知识点**
-
-- Node 平台下核心机制：非阻塞 IO、EventLoop、消息队列
-- Node 模块加载机制、第三方包机制、CommonJS 实现原理
-- Node 平台下网络编程、TCP/IP 协议、HTTP 服务器搭建、Session 原理
-- 多进程 Node 应用开发以及 Node 集群搭建、结合 Nginx 反向代理
 
 **相关文献**
 
@@ -117,10 +87,6 @@
 - [数据结构和算法动态可视化](https://visualgo.net/zh)
 
 ## 设计模式
-
-**知识点**
-
-- 常用设计模式
 
 **相关文献**
 
@@ -150,12 +116,6 @@
 
 ## webpack/babel
 
-**知识点**
-
-- Babel 编译、Polyfill 等方案处理新特性兼容问题
-- 使用 Webpack 实现前端项目模块化的实践方式
-- Webpack 最核心的 Loader 和 Plugin 机制，开发自定义扩展
-
 **相关文献**
 
 - [做了一夜动画，让大家十分钟搞懂 Webpack](https://juejin.cn/post/6961961165656326152)
@@ -168,13 +128,6 @@
 - [深入浅出 Babel 下篇：既生 Plugin 何生 Macros](https://juejin.cn/post/6844903961820921869)
 
 ## 构建与工程化
-
-**知识点**
-
-- 前端工程化的定义及组成，以及对现代前端的重要性
-- 脚手架工具的设计思想和目标，掌握通用型脚手架的使用和扩展
-- 如何设计并开发一款符合自己企业个性化需求的脚手架工具
-- Monorepo、Yarn workspace、Lerna、Rollup、自动化测试
 
 **相关文献**
 
