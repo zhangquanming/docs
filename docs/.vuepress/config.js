@@ -101,6 +101,7 @@ module.exports = {
           title: '全栈基础',
           collapsable: false,
           children: [
+            ['other/node.md', 'Node'],
             ['other/nginx.md', 'Nginx'],
             ['other/docker.md', 'Docker'],
           ]
