@@ -160,7 +160,13 @@ instance.[__proto__...] === instance.constructor.prototype
 
 在 JS 中，继承通常指的便是 **原型链继承**，也就是通过指定原型，并可以通过原型链继承原型上的属性或者方法。
 
-- 最优化: 圣杯模式
+- 原型链继承：内存空间是共享的，实例之间相互影响。
+- 构造函数继承：无法复用父类原型属性和方法，缺少复用性。
+- 组合是继承：共享父类原型方法与属性，但是调用两次构造函数。
+- 原型式继承：子类构建时无法向父类传参，私有引用属性共享。
+- 寄生式继承： 原型式继承加强版，缺点类同。
+- 寄生组合式：集各模式所长, 总体来说就是解决了 组合模式 两次调用父类构造方法的弊端，减少子类父类属性 重复的问题，减少了内存占用。
+- 最优化：圣杯模式
 
 ```js
 var inherit = (function (c, p) {
@@ -222,7 +228,8 @@ function type(obj) {
 
   - es6: `import / export`
   - commonjs: `require / module.exports / exports`
-  - amd: `require / defined`
+  - amd: `require / defined`(依赖前置)
+  - cmd: (依赖就近)
 
 - `require` 与 `import` 的区别:
   - `require` 支持 动态导入，`import` 不支持，正在提案 (babel 下可支持)。

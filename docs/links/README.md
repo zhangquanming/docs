@@ -52,7 +52,6 @@
 
 - [React.js 小书](https://www.bookstack.cn/read/react-naive-book/about.md)
 - [React 全部 api 解读+基础实践大全(夯实基础 2 万字总结)](https://juejin.cn/post/6950063294270930980)
-- [这可能是最通俗的 React Fiber(时间分片) 打开方式](https://juejin.cn/post/6844903975112671239)
 - [React 源码解析](https://zhuanlan.zhihu.com/p/28697362)
 - [React 源码剖析系列 － 生命周期的管理艺术](https://zhuanlan.zhihu.com/p/20312691)
 - [深入 React 的生命周期(上)：出生阶段(Mount)](https://zhuanlan.zhihu.com/p/30757059)
@@ -61,7 +60,10 @@
 - [React 源码剖析系列 － 解密 setState](https://zhuanlan.zhihu.com/p/20328570)
 - [你真的理解 setState 吗？](https://zhuanlan.zhihu.com/p/39512941)
 - [React 中的高阶组件及其应用场景](https://juejin.cn/post/6844903782355042312)
+- [这可能是最通俗的 React Fiber(时间分片) 打开方式](https://juejin.cn/post/6844903975112671239)
 - [你不知道的 requestIdleCallback](https://zhuanlan.zhihu.com/p/60189423)
+- [React 为什么使用 Lane 技术方案](https://juejin.cn/post/6951206227418284063)
+- [React Scheduler 为什么使用 MessageChannel 实现](https://juejin.cn/post/6953804914715803678)
 - [React 运行时优化方案的演进](https://juejin.cn/post/7010539227284766751)
 
 ## Node
@@ -70,6 +72,7 @@
 
 - [深入理解 Node.js 进程与线程](https://mp.weixin.qq.com/s/VzXnnfn4gCBMd5wea3LRIg)
 - [《深入理解 Node.js：核心思想与源码分析》](https://yjhjstz.gitbooks.io/deep-into-node/content/)
+- [Libuv 之 - 只看这篇是不够的](https://juejin.cn/post/6945702722645524517#heading-0)
 
 ## 浏览器与 HTTP
 
