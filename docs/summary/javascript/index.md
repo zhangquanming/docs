@@ -204,6 +204,58 @@ JS 中在使用运算符号或者对比符时，会自带隐式转换，规则�
 - 基本类型(`string / number / boolean / undefined`) + `function`: 直接使用 `typeof` 即可。
 - 其余引用类型(`Array / Date / RegExp Error`): 调用 `toString` 后根据 `[object XXX]` 进行判断。
 
+### typeof
+
+```js
+console.log(typeof 1) // number
+console.log(typeof true) // boolean
+console.log(typeof 'mc') // string
+console.log(typeof Symbol) // function
+console.log(typeof function () {}) // function
+console.log(typeof console.log()) // undefined
+console.log(typeof []) // object
+console.log(typeof {}) // object
+console.log(typeof null) // object
+console.log(typeof undefined) // undefined
+```
+
+优点：能够快速区分基本数据类型
+
+缺点：不能将 Object、Array 和 Null 区分，都返回 object
+
+### instanceof
+
+```js
+console.log(1 instanceof Number) // false
+console.log(true instanceof Boolean) // false
+console.log('str' instanceof String) // false
+console.log([] instanceof Array) // true
+console.log(function () {} instanceof Function) // true
+console.log({} instanceof Object) // true
+```
+
+优点：能够区分 Array、Object 和 Function，适合用于判断自定义的类实例对象
+
+缺点：Number，Boolean，String 基本数据类型不能判断
+
+### Object.prototype.toString.call()
+
+```js
+var toString = Object.prototype.toString
+console.log(toString.call(1)) //[object Number]
+console.log(toString.call(true)) //[object Boolean]
+console.log(toString.call('mc')) //[object String]
+console.log(toString.call([])) //[object Array]
+console.log(toString.call({})) //[object Object]
+console.log(toString.call(function () {})) //[object Function]
+console.log(toString.call(undefined)) //[object Undefined]
+console.log(toString.call(null)) //[object Null]
+```
+
+优点：精准判断数据类型
+
+缺点：写法繁琐不容易记，推荐进行封装后使用
+
 很稳的判断封装:
 
 ```js
@@ -326,9 +378,17 @@ function throttle(fn, wait, immediate) {
 
 ## babel 编译原理
 
+Babel 是一个 JavaScript 编译器，是一个工具链，主要用于将采用 ECMAScript 2015+ 语法编写的代码转换为向后兼容的 JavaScript 语法，以便能够运行在当前和旧版本的浏览器或其他环境中。
+
 - babylon 将 ES6/ES7 代码解析成 AST
 - babel-traverse 对 AST 进行遍历转译，得到新的 AST
 - 新 AST 通过 babel-generator 转换成 ES5
+
+`Babel` 的功能很纯粹，它只是一个编译器。大多数编译器的工作过程可以分为三部分：
+
+- **解析（Parse）** ：将源代码转换成更加抽象的表示方法（例如抽象语法树）。包括词法分析和语法分析。词法分析主要把字符流源代码（Char Stream）转换成令牌流（ Token Stream），语法分析主要是将令牌流转换成抽象语法树（Abstract Syntax Tree，AST）。
+- **转换（Transform）** ：通过 Babel 的插件能力，对（抽象语法树）做一些特殊处理，将高版本语法的 AST 转换成支持低版本语法的 AST。让它符合编译器的期望，当然在此过程中也可以对 AST 的 Node 节点进行优化操作，比如添加、更新以及移除节点等。
+- **生成（Generate）** ：将 AST 转换成字符串形式的低版本代码，同时也能创建 Source Map 映射。
 
 ## 函数柯里化
 
