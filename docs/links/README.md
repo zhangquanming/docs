@@ -20,7 +20,6 @@
 - [现代 JavaScript 教程](https://zh.javascript.info/)
 - [JavaScript 深入系列、JavaScript 专题系列、ES6 系列、React 系列（冴羽的博客）](https://github.com/mqyqingfeng/Blog)
 - [看了就会，手写 Promise 原理，最通俗易懂的版本！！！](https://juejin.cn/post/6994594642280857630)
-- [这一次，彻底弄懂 JavaScript 执行机制](https://juejin.cn/post/6844903512845860872)
 - [由浅入深，66 条 JavaScript 面试知识点](https://juejin.cn/post/6844904200917221389)
 - [如何优雅处理前端异常？](https://zhuanlan.zhihu.com/p/51800345)
 
@@ -105,6 +104,7 @@
 - [用 preload 预加载页面资源](https://juejin.cn/post/6844903562070196237)
 - [懒加载和预加载](https://juejin.cn/post/6844903614138286094)
 - [网页图片加载优化方案](https://zhuanlan.zhihu.com/p/33370207)
+- [玩转 webpack，使你的打包速度提升 90%](https://juejin.cn/post/6844904071736852487)
 
 ## 前端监控
 
@@ -125,6 +125,7 @@
 - [手把手教你撸一个 Webpack Loader](https://juejin.cn/post/6844903555673882632)
 - [手把手教你撸一个简易的 webpack](https://juejin.cn/post/6844903617971879949)
 - [带你走进 webpack 世界，成为 webpack 头号玩家。](https://juejin.cn/post/6844903588607557639)
+- [当面试官问 Webpack 的时候他想知道什么](https://juejin.cn/post/6943468761575849992)
 - [面试官: 你了解过 Babel 吗？写过 Babel 插件吗?](https://juejin.cn/post/6844903566809759758)
 - [不容错过的 Babel7 知识](https://juejin.cn/post/6844904008679686152)
 - [深入浅出 Babel 上篇：架构和原理 + 实战](https://juejin.cn/post/6844903956905197576)
