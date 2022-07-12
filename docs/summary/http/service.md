@@ -116,8 +116,8 @@
 
 ## 安全
 
-- XSS 攻击: 注入恶意代码
-  - cookie 设置 httpOnly
+- XSS: 跨站脚本攻击
+  - cookie 设置 httpOnly, 禁止 JavaScript 读取某些敏感 Cookie
   - 转义页面上的输入内容和输出内容
 - CSRF: 跨站请求伪造，防护:
   - get 不修改数据

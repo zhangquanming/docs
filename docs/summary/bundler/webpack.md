@@ -250,3 +250,46 @@ Webpack 中两个最重要的类 Compiler 与 Compilation 便是继承于 Tapabl
   - `source-map`
     - 开发: `cheap-module-eval-source-map`
     - 生产: `hidden-source-map`
+
+## 性能优化思路
+
+对于正常的项目优化，一般都涉及到几个方面，**开发过程中**、**上线之后的首屏**、**运行过程的状态**
+
+- 开发过程和打包
+  - 分析打包速度
+    - `speed-measure-webpack-plugin`
+  - 分析影响打包速度环节
+    - 获取依赖模块（搜索时间）
+    - 解析依赖模块（解析时间）
+    - 依赖模块的打包（压缩时间）
+    - 运行时的修改（二次打包时间）
+  - 优化解析时间 - 开启多进程打包
+    - `thread-loader`
+    - `HappyPack`
+  - 合理利用缓存（缩短连续构建时间，增加初始构建时间）
+    - `cache-loader`
+    - `HardSourceWebpackPlugin`
+  - 优化压缩时间
+    - webpack3
+      - 启动打包时加上 `--optimize-minimize`(`UglifyJsPlugin`)
+      - `ParallelUglifyPlugin`
+    - webpack4
+      - webpack4 默认内置使用 `terser-webpack-plugin` 插件压缩优化代码, `terser` 启动多进程。
+  - 优化搜索时间- 缩小文件搜索范围
+    - loader 的 `test`，`include`，`exclude`
+    - resolve.modules
+    - resolve.alias 减少耗时的递归解析操作
+    - resolve.extensions （提高命中导入语句文件后缀）
+    - resolve.mainFields
+    - module.noParse
+- 上线之后的首屏
+  - 首屏优化一般涉及到几个指标 FP、FCP、FMP；要有一个良好的体验是尽可能的把 FCP 提前，需要做一些工程化的处理，去优化资源的加载
+  - 方式及分包策略，资源的减少是最有效的加快首屏打开的方式
+  - 骨架屏及预渲染（部分结构预渲染）、suspence 与 lazy 做懒加载动态组件的方式
+  - SSR 对于 SEO 和首屏的优化有一定的优势
+- 运行状态
+  - react 项目上线之后，首先需要保障的是可用性，所以可以通过 React.Profiler 分析组件的渲染次数及耗时的一些任务，但是 Profile 记录的是 commit 阶段的数据，所以对于 react 的调和阶段就需要结合 performance API 一起分析
+  - 由于 React 是父级 props 改变之后，所有与 props 不相关子组件在没有添加条件控制的情况之下，也会触发 render 渲染，这是没有必要的，可以结合 React 的 PureComponent 以及 React.memo 等做浅比较处理，这中间有涉及到不可变数据的处理，当然也可以结合使用 ShouldComponentUpdate 做深比较处理
+  - 所有的运行状态优化，都是减少不必要的 render，React.useMemo 与 React.useCallback 也是可以做很多优化的地方
+  - 在很多应用中，都会涉及到使用 redux 以及使用 context，这两个都可能造成许多不必要的 render，所以在使用的时候，也需要谨慎的处理一些数据
+  - 最后就是保证整个应用的可用性，为组件创建错误边界，可以使用 componentDidCatch 来处理
