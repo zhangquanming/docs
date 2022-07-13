@@ -458,3 +458,12 @@ Array.prototype.flat = function () {
     .map((item) => +item)
 }
 ```
+
+## 类数组转换数组
+
+- 转换方法
+  - `Array.from()`
+  - `Array.prototype.slice.call()`
+  - `Array.prototype.forEach()` 进行属性遍历并组成新的数组
+- 装换须知
+  - 转换后的数组长度由 length 属性决定。索引不连续时转换结果是连续的，会自动补位。
