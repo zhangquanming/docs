@@ -157,6 +157,13 @@ class Component extends React.Component {
   - `getSnapshotBeforeUpdate(prevProps, prevState)` 可以在更新之前获取最新的渲染数据，它的调用是在 render 之后， update 之前；
   - `shouldComponentUpdate`: 默认每次调用 `setState`，一定会最终走到 diff 阶段，但可以通过 `shouldComponentUpdate` 的生命钩子返回 `false` 来直接阻止后面的逻辑执行，通常是用于做条件渲染，优化渲染的性能。
 
+## 组件通信
+
+- 父组件向子组件通信：父组件通过 props 向子组件传递需要的信息。
+- 子组件向父组件通信：props+回调的方式。
+- 跨级组件通信: props 层层传递、context
+- 非嵌套关系的组件通信： 自定义事件通信（发布订阅模式）、redux 等状态管理
+
 ## setState
 
 在了解 `setState` 之前，先来简单了解下 React 一个包装结构: **Transaction**:

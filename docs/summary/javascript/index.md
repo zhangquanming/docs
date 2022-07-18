@@ -449,7 +449,7 @@ arr.sort(function () {
 })
 ```
 
-- 数组扁平化: flat: [1,[2,3]] --> [1, 2, 3]
+- 数组扁平化: flat: `[1,[2,3]] --> [1, 2, 3]`
 
 ```js
 Array.prototype.flat = function () {
