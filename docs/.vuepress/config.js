@@ -91,9 +91,10 @@ module.exports = {
           ]
         },
         {
-          title: '项目优化',
+          title: '工程化',
           collapsable: false,
           children: [
+            ['monitor/monitor.md', '前端监控'],
             ['performance/performance.md', '项目性能优化'],
           ]
         },
