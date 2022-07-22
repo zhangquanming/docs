@@ -3,8 +3,7 @@
 ## CSS
 
 - [rem 布局的原理解析](https://yanhaijing.com/css/2017/09/29/principle-of-rem-layout/)
-- [8 个硬核技巧带你迅速提升 css 技术](https://juejin.cn/post/6908879198933221383#heading-0)
-- [你不可能知道的骨架屏玩法](https://juejin.cn/post/6994678354200756238)
+- [8 个硬核技巧带你迅速提升 css 技术](https://juejin.cn/post/6908879198933221383)
 - [不可思议的纯 CSS 滚动进度条效果](https://juejin.cn/post/6844903758074216462)
 - [彻底搞懂 word-break、word-wrap、white-space](https://juejin.cn/post/6844903667863126030)
 - [CSS 性能优化的 8 个技巧](https://juejin.cn/post/6844903649605320711?utm_source=gold_browser_extension)
@@ -17,11 +16,21 @@
 **相关文献**
 
 - [ES6 入门教程（阮一峰）](https://es6.ruanyifeng.com/)
-- [现代 JavaScript 教程](https://zh.javascript.info/)
 - [JavaScript 深入系列、JavaScript 专题系列、ES6 系列、React 系列（冴羽的博客）](https://github.com/mqyqingfeng/Blog)
-- [看了就会，手写 Promise 原理，最通俗易懂的版本！！！](https://juejin.cn/post/6994594642280857630)
 - [由浅入深，66 条 JavaScript 面试知识点](https://juejin.cn/post/6844904200917221389)
+- [2 万字 | 前端基础拾遗 90 问](https://juejin.cn/post/6844904116552990727)
+- [【译】理解 Javascript 执行上下文和执行栈](https://juejin.cn/post/6844903704466833421)
+- [JS 高级之手写一个 Promise,Generator,async 和 await【近 1W 字】](https://juejin.cn/post/6844904022223110151)
+- [看了就会，手写 Promise 原理，最通俗易懂的版本！！！](https://juejin.cn/post/6994594642280857630)
 - [如何优雅处理前端异常？](https://zhuanlan.zhihu.com/p/51800345)
+- [JavaScript 工具函数大全（新）](https://juejin.cn/post/6844903966526930951)
+- [书到用时方恨少，一大波 JS 开发工具函数来了](https://juejin.cn/post/6844904090313424903)
+- [这应该是你见过的最全前端下载总结](https://juejin.cn/post/6844903763359039501)
+- [前端大文件上传](https://juejin.cn/post/6844903860327186445)
+- [你不知道的 Proxy](https://juejin.cn/post/6924442692667572237)
+- [一次弄懂 Event Loop（彻底解决此类面试问题）](https://juejin.cn/post/6844903764202094606)
+- [浏览器与 Node 的事件循环(Event Loop)有何区别?](https://zhuanlan.zhihu.com/p/54882306)
+- [从 event loop 规范探究 javaScript 异步及浏览器更新渲染时机](https://github.com/aooy/blog/issues/5)
 
 ## TS
 
@@ -29,6 +38,8 @@
 - [一份不可多得的 TS 学习指南（1.8W 字）](https://juejin.cn/post/6872111128135073806)
 - [一文读懂 TypeScript 泛型及应用](https://juejin.cn/post/6844904184894980104)
 - [TypeScript 高级用法](https://juejin.cn/post/6926794697553739784)
+- [TS 常见问题整理（60 多个，持续更新 ing）](https://juejin.cn/post/6844904055039344654)
+- [总结 TypeScript 在项目开发中的应用实践体会](https://juejin.cn/post/6970841540776329224)
 
 ## Vue
 
@@ -75,9 +86,11 @@
 
 ## 浏览器与 HTTP
 
+- [Chrome DevTools 中的这些骚操作，你都知道吗？](https://juejin.cn/post/6844904162602254350)
 - [浏览器的渲染原理简介](https://coolshell.cn/articles/9666.html)
 - [浏览器的工作原理](https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/)
 - [经典面试题：从 URL 输入到页面展现到底发生什么？](https://zhuanlan.zhihu.com/p/57895541)
+- [前端开发的你应该知道的浏览器知识](https://juejin.cn/post/6932762257675780103)
 - [jsonp 的原理与实现](https://segmentfault.com/a/1190000007665361)
 - [HTTP 缓存机制-NodeJS 一步一步试验](https://juejin.cn/post/6844904116972421128)
 - [TCP 协议灵魂之问，巩固你的网路底层基础](https://juejin.cn/post/6844904070889603085)
