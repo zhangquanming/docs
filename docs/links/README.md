@@ -157,6 +157,7 @@
 - [vue 多工程间公共模块处理最佳实践](https://juejin.cn/post/6970309861502386184)
 - [现代前端工程为什么越来越离不开 Monorepo?](https://juejin.cn/post/6944877410827370504)
 - [Vue3 组件库工程化实战 --Element3](https://juejin.cn/post/6930879590554402830)
+- [《大前端进阶 Node.js》系列 P6 必备脚手架/CI 构建能力（上）](https://juejin.cn/post/6844904101893898248)
 
 ## Git
 
