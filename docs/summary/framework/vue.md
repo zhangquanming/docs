@@ -1,10 +1,19 @@
+## MVVM
+
+`视图模型双向绑定（Model-View-ViewModel）`,也就是把 `MVC` 中的 `Controller` 演变成 `ViewModel`。`Model`层代表数据模型，`View`代表 UI 组件，`ViewModel` 是 `View` 和 `Model` 的桥梁，数据会绑定到 `ViewModel` 层并自动将数据渲染到页面中。视图变化的时候会通知 `ViewModel` 层更新数据。以前是操作 DOM 结构更新视图，现在是 `数据驱动视图`。
+
 ## nextTick
 
-在下次 `dom` 更新循环结束之后执行延迟回调，可用于获取更新后的 `dom` 状态
+在下次 `dom` 更新循环结束之后执行延迟回调，可用于获取更新后的 `dom` 状态， `nextTick` 主要使用了宏任务和微任务。 根据执行环境分别尝试采用 `Promise`、`MutationObserver`、`setImmediate`，如果以上都不行则采用 `setTimeout` 定义了一个异步方法，多次调用 `nextTick` 会将方法存入队列中，通过这个异步方法清空当前队列。
 
 - 新版本中默认是 `microtasks`, `v-on` 中会使用 `macrotasks`
 - `macrotasks` 任务的实现:
   - `setImmediate` / `MessageChannel` / `setTimeout`
+
+## keep-alive 的实现
+
+- 作用： 实现组件的缓存，保持组件的状态，以避免反复渲染导致的性能问题。需要缓存组件频繁切换，不需要重复渲染，如：tabs 标签页。
+- 原理： `Vue.js` 内部将 `DOM` 节点抽象成一个个的 `Vnode` 节点，`keep-alive` 组件的缓存也是基于 `Vnode` 的而不是直接存储`DOM`结构。它将满足条件 `(pruneCache与pruneCache)` 的组件在 `cache` 对象中缓存起来，在需要重新渲染的时候在 `cache` 对象中取出再重新渲染。
 
 ## 生命周期
 
@@ -85,8 +94,8 @@ let reactiveData = new Proxy(data, {
 ## vue-router
 
 - mode
-  - `hash`
-  - `history`
+  - `hash` ： hashchange
+  - `history` ： popstate、pushState、replaceState
 - 跳转
   - `this.$router.push()`
   - `<router-link to=""></router-link>`
