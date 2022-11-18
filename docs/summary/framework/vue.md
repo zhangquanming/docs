@@ -4,12 +4,9 @@
 
 ## nextTick
 
-<<<<<<< HEAD
-在下次 `dom` 更新循环结束之后执行延迟回调，可用于获取更新后的 `dom` 状态， `nextTick` 主要使用了宏任务和微任务。 根据执行环境分别尝试采用 `Promise`、`MutationObserver`、`setImmediate`，如果以上都不行则采用 `setTimeout` 定义了一个异步方法，多次调用 `nextTick` 会将方法存入队列中，通过这个异步方法清空当前队列。
-=======
-1. 在下次 DOM 更新循环结束之后执行延迟回调，在修改数据之后立即使用 nextTick 来获取更新后的 DOM。
-2. Vue 在更新 DOM 时是异步执行的。只要侦听到数据变化，Vue 将开启 1 个队列，并缓冲在同一事件循环中发生的所有数据变更。如果同一个 watcher 被多次触发，只会被推入到队列中一次。
->>>>>>> 16e67ad2f6bd5224f96c329e40a00bfd97292918
+`nextTick` 主要使用了宏任务和微任务。 根据执行环境分别尝试采用 `Promise`、`MutationObserver`、`setImmediate`，如果以上都不行则采用 `setTimeout` 定义了一个异步方法，多次调用 `nextTick` 会将方法存入队列中，通过这个异步方法清空当前队列。
+在下次 DOM 更新循环结束之后执行延迟回调，在修改数据之后立即使用 nextTick 来获取更新后的 DOM。
+Vue 在更新 DOM 时是异步执行的。只要侦听到数据变化，Vue 将开启 1 个队列，并缓冲在同一事件循环中发生的所有数据变更。如果同一个 watcher 被多次触发，只会被推入到队列中一次。
 
 ::: tip
 nextTick 主要使用了宏任务和微任务。 根据执行环境分别尝试采用 `Promise`、`MutationObserver`、`setImmediate`，如果以上都不行则采用 `setTimeout` 定义了一个异步方法，多次调用 nextTick 会将方法存入队列中，通过这个异步方法清空当前队列。
@@ -19,6 +16,9 @@ nextTick 主要使用了宏任务和微任务。 根据执行环境分别尝试�
 
 - 作用： 实现组件的缓存，保持组件的状态，以避免反复渲染导致的性能问题。需要缓存组件频繁切换，不需要重复渲染，如：tabs 标签页。
 - 原理： `Vue.js` 内部将 `DOM` 节点抽象成一个个的 `Vnode` 节点，`keep-alive` 组件的缓存也是基于 `Vnode` 的而不是直接存储`DOM`结构。它将满足条件 `(pruneCache与pruneCache)` 的组件在 `cache` 对象中缓存起来，在需要重新渲染的时候在 `cache` 对象中取出再重新渲染。
+  ::: tip
+  nextTick 主要使用了宏任务和微任务。 根据执行环境分别尝试采用 `Promise`、`MutationObserver`、`setImmediate`，如果以上都不行则采用 `setTimeout` 定义了一个异步方法，多次调用 nextTick 会将方法存入队列中，通过这个异步方法清空当前队列。
+  :::
 
 ## 生命周期
 
