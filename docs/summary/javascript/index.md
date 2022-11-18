@@ -94,17 +94,32 @@ let foo = function () {
 
 ## 闭包
 
-闭包属于一种特殊的作用域，称为**静态作用域**。它的定义可以理解为: **父函数被销毁**的情况下，返回出的子函数的 `[[scope]]` 中仍然保留着父级的单变量对象和作用域链，因此可以继续访问到父级的变量对象，这样的函数称为闭包。
+#### 什么是闭包？
 
-#### 闭包会产生一个很经典的问题:
+函数执行后返回结果是一个内部函数，并被外部变量所应用，如果内部函数持有被执行函数作用域的变量，既形成闭包。
 
-- 多个子函数的 `[[scope]]` 都是同时指向父级，是完全共享的。因此当父级的变量对象被修改时，所有子函数都受到影响。
+可以在内部函数访问到外部函数作用域。使用闭包,一可以读取函数中的变量，二可以将函数中的变量储存在内存中，保护变量不被污染。正因为变量储存在内存中，会对内存消耗，所以不能滥用闭包，会影响网页性能，造成内存泄漏。但不需要使用闭包是，应及时释放内存，可将变量赋值为 null。
 
-#### 解决:
+#### 闭包原理
 
-- 变量可以通过 **函数参数的形式** 传入，避免使用默认的 `[[scope]]` 向上查找。
-- 使用 `setTimeout` 包裹，通过第三个参数传入。
-- 使用 **块级作用域**，让变量成为自己上下文的属性，避免共享。
+利用了函数作用域的特性，一个函数内部定义的函数会将外部函数的活动对象添加到他的作用域链中，函数执行完毕，其执行作用域链销毁，但因内部函数的作用域链仍然在应用这个活动对象，所以其活动对象不会被销毁。只有内部函数被销毁时才被销毁。
+
+#### 优点
+
+- 可以从内部函数访问外部函数作用域中的变量，且访问的变量长期驻扎在内存中，可供之后使用
+- 避免变量污染全局
+- 把变量存在独立的作用域，作为私有成员存在
+
+#### 缺点
+
+- 因长驻内存中，对内存有消耗。使用不当会导致内存泄漏
+- 对处理速度具有负面影响。闭包的层级决定了引用的外部变量在查找时经过的作用域链长度
+
+#### 应用场景
+
+- 模块封装，在各模块规范出现之前，都是用这样的方式防止变量污染全局。
+- 在循环中创建闭包，防止取到意外的值。
+- 闭包的应用场景非常多，只要用到了函数柯里化的地方就有闭包的身影，比如防抖节流、定时器、惰性处理等
 
 ## script 引入方式
 
@@ -160,7 +175,13 @@ instance.[__proto__...] === instance.constructor.prototype
 
 在 JS 中，继承通常指的便是 **原型链继承**，也就是通过指定原型，并可以通过原型链继承原型上的属性或者方法。
 
-- 最优化: 圣杯模式
+- 原型链继承：内存空间是共享的，实例之间相互影响。
+- 构造函数继承：无法复用父类原型属性和方法，缺少复用性。
+- 组合是继承：共享父类原型方法与属性，但是调用两次构造函数。
+- 原型式继承：子类构建时无法向父类传参，私有引用属性共享。
+- 寄生式继承： 原型式继承加强版，缺点类同。
+- 寄生组合式：集各模式所长, 总体来说就是解决了 组合模式 两次调用父类构造方法的弊端，减少子类父类属性 重复的问题，减少了内存占用。
+- 最优化：圣杯模式
 
 ```js
 var inherit = (function (c, p) {
@@ -198,6 +219,58 @@ JS 中在使用运算符号或者对比符时，会自带隐式转换，规则�
 - 基本类型(`string / number / boolean / undefined`) + `function`: 直接使用 `typeof` 即可。
 - 其余引用类型(`Array / Date / RegExp Error`): 调用 `toString` 后根据 `[object XXX]` 进行判断。
 
+### typeof
+
+```js
+console.log(typeof 1) // number
+console.log(typeof true) // boolean
+console.log(typeof 'mc') // string
+console.log(typeof Symbol) // function
+console.log(typeof function () {}) // function
+console.log(typeof console.log()) // undefined
+console.log(typeof []) // object
+console.log(typeof {}) // object
+console.log(typeof null) // object
+console.log(typeof undefined) // undefined
+```
+
+优点：能够快速区分基本数据类型
+
+缺点：不能将 Object、Array 和 Null 区分，都返回 object
+
+### instanceof
+
+```js
+console.log(1 instanceof Number) // false
+console.log(true instanceof Boolean) // false
+console.log('str' instanceof String) // false
+console.log([] instanceof Array) // true
+console.log(function () {} instanceof Function) // true
+console.log({} instanceof Object) // true
+```
+
+优点：能够区分 Array、Object 和 Function，适合用于判断自定义的类实例对象
+
+缺点：Number，Boolean，String 基本数据类型不能判断
+
+### Object.prototype.toString.call()
+
+```js
+var toString = Object.prototype.toString
+console.log(toString.call(1)) //[object Number]
+console.log(toString.call(true)) //[object Boolean]
+console.log(toString.call('mc')) //[object String]
+console.log(toString.call([])) //[object Array]
+console.log(toString.call({})) //[object Object]
+console.log(toString.call(function () {})) //[object Function]
+console.log(toString.call(undefined)) //[object Undefined]
+console.log(toString.call(null)) //[object Null]
+```
+
+优点：精准判断数据类型
+
+缺点：写法繁琐不容易记，推荐进行封装后使用
+
 很稳的判断封装:
 
 ```js
@@ -222,7 +295,8 @@ function type(obj) {
 
   - es6: `import / export`
   - commonjs: `require / module.exports / exports`
-  - amd: `require / defined`
+  - amd: `require / defined`(依赖前置)
+  - cmd: (依赖就近)
 
 - `require` 与 `import` 的区别:
   - `require` 支持 动态导入，`import` 不支持，正在提案 (babel 下可支持)。
@@ -319,9 +393,17 @@ function throttle(fn, wait, immediate) {
 
 ## babel 编译原理
 
+Babel 是一个 JavaScript 编译器，是一个工具链，主要用于将采用 ECMAScript 2015+ 语法编写的代码转换为向后兼容的 JavaScript 语法，以便能够运行在当前和旧版本的浏览器或其他环境中。
+
 - babylon 将 ES6/ES7 代码解析成 AST
 - babel-traverse 对 AST 进行遍历转译，得到新的 AST
 - 新 AST 通过 babel-generator 转换成 ES5
+
+`Babel` 的功能很纯粹，它只是一个编译器。大多数编译器的工作过程可以分为三部分：
+
+- **解析（Parse）** ：将源代码转换成更加抽象的表示方法（例如抽象语法树）。包括词法分析和语法分析。词法分析主要把字符流源代码（Char Stream）转换成令牌流（ Token Stream），语法分析主要是将令牌流转换成抽象语法树（Abstract Syntax Tree，AST）。
+- **转换（Transform）** ：通过 Babel 的插件能力，对（抽象语法树）做一些特殊处理，将高版本语法的 AST 转换成支持低版本语法的 AST。让它符合编译器的期望，当然在此过程中也可以对 AST 的 Node 节点进行优化操作，比如添加、更新以及移除节点等。
+- **生成（Generate）** ：将 AST 转换成字符串形式的低版本代码，同时也能创建 Source Map 映射。
 
 ## 函数柯里化
 
@@ -367,7 +449,7 @@ arr.sort(function () {
 })
 ```
 
-- 数组扁平化: flat: [1,[2,3]] --> [1, 2, 3]
+- 数组扁平化: flat: `[1,[2,3]] --> [1, 2, 3]`
 
 ```js
 Array.prototype.flat = function () {
@@ -376,3 +458,12 @@ Array.prototype.flat = function () {
     .map((item) => +item)
 }
 ```
+
+## 类数组转换数组
+
+- 转换方法
+  - `Array.from()`
+  - `Array.prototype.slice.call()`
+  - `Array.prototype.forEach()` 进行属性遍历并组成新的数组
+- 装换须知
+  - 转换后的数组长度由 length 属性决定。索引不连续时转换结果是连续的，会自动补位。

@@ -4,11 +4,16 @@
 
 ## nextTick
 
+<<<<<<< HEAD
 在下次 `dom` 更新循环结束之后执行延迟回调，可用于获取更新后的 `dom` 状态， `nextTick` 主要使用了宏任务和微任务。 根据执行环境分别尝试采用 `Promise`、`MutationObserver`、`setImmediate`，如果以上都不行则采用 `setTimeout` 定义了一个异步方法，多次调用 `nextTick` 会将方法存入队列中，通过这个异步方法清空当前队列。
+=======
+1. 在下次 DOM 更新循环结束之后执行延迟回调，在修改数据之后立即使用 nextTick 来获取更新后的 DOM。
+2. Vue 在更新 DOM 时是异步执行的。只要侦听到数据变化，Vue 将开启 1 个队列，并缓冲在同一事件循环中发生的所有数据变更。如果同一个 watcher 被多次触发，只会被推入到队列中一次。
+>>>>>>> 16e67ad2f6bd5224f96c329e40a00bfd97292918
 
-- 新版本中默认是 `microtasks`, `v-on` 中会使用 `macrotasks`
-- `macrotasks` 任务的实现:
-  - `setImmediate` / `MessageChannel` / `setTimeout`
+::: tip
+nextTick 主要使用了宏任务和微任务。 根据执行环境分别尝试采用 `Promise`、`MutationObserver`、`setImmediate`，如果以上都不行则采用 `setTimeout` 定义了一个异步方法，多次调用 nextTick 会将方法存入队列中，通过这个异步方法清空当前队列。
+:::
 
 ## keep-alive 的实现
 

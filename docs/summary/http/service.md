@@ -94,6 +94,76 @@
 - 服务端 -- ACK,FIN --> 客户端， LAST-ACK
 - 客户端 -- ACK --> 服务端，CLOSED
 
+## 解决无状态问题
+
+HTTP 协议是无状态的，无状态意味着，服务器无法给不同的客户端响应不同的信息。这样一些交互业务就无法支撑了。
+
+#### 1. Cookie
+
+cookie 的传递会经过下边这 4 步：
+
+1. Client 发送 HTTP 请求给 Server
+2. Server 响应，并附带 Set-Cookie 的头部信息
+3. Client 保存 Cookie，之后请求 Server 会附带 Cookie 的头部信息
+4. Server 从 Cookie 知道 Client 是谁了，返回相应的响应
+
+Server 拿到 Cookie 后，通过什么信息才能判断是哪个 Client 呢？服务器的 SessionID。
+
+#### 2. Session
+
+如果把用户名、密码等重要隐私都存到客户端的 Cookie 中，还是有泄密风险。为了更安全，把机密信息保存到服务器上，这就是 Session。Session 是服务器上维护的客户档案，可以理解为服务器端数据库中有一张 user 表，里面存放了客户端的用户信息。SessionID 就是这张表的主键 ID。
+
+Session 信息存到服务器，必然占用内存。用户多了以后，开销必然增大。为了提高效率，需要做分布式，做负载均衡。因为认证的信息保存在内存中，用户访问哪台服务器，下次还得访问相同这台服务器才能拿到授权信息，这就限制了负载均衡的能力。而且 SeesionID 存在 Cookie，还是有暴露的风险，比如 CSRF(Cross-Site Request Forgery，跨站请求伪造)。
+
+如何解决这些问题呢？基于 Token 令牌鉴权。
+
+#### 3. Token
+
+首先，Token 不需要再存储用户信息，节约了内存。其次，由于不存储信息，客户端访问不同的服务器也能进行鉴权，增强了扩展能力。然后，Token 可以采用不同的加密方式进行签名，提高了安全性。
+
+Token 就是一段字符串，Token 传递的过程跟 Cookie 类似，只是传递对象变成了 Token。用户使用用户名、密码请求服务器后，服务器就生成 Token，在响应中返给客户端，客户端再次请求时附带上 Token，服务器就用这个 Token 进行认证鉴权。
+
+Token 虽然很好的解决了 Session 的问题，但仍然不够完美。服务器在认证 Token 的时候，仍然需要去数据库查询认证信息做校验。为了不查库，直接认证，JWT 出现了。
+
+#### 4. JWT
+
+JWT 的英文全称是 JSON Web Token。JWT 把所有信息都存在自己身上了，包括用户名密码、加密信息等，且以 JSON 对象存储的。
+
+JWT 长相是 xxxxx.yyyyy.zzzzz，极具艺术感。包括三部分内容
+
+- Header 包括 token 类型和加密算法(HMAC SHA256 RSA)
+
+```js
+{ "alg": "HS256", "typ": "JWT"}
+```
+
+- Payload 传入内容
+
+```js
+{ "sub": "1234567890", "name": "John Doe", "admin": true}
+```
+
+- Signature
+  签名，把 header 和 payload 用 base64 编码后"."拼接，加盐 secret(服务器私钥)。
+
+```js
+HMACSHA256(base64UrlEncode(header) + '.' + base64UrlEncode(payload), secret)
+```
+
+最终的 token 就是这样一个字符串
+
+```js
+eyJhbGciOiJIUzI1NiJ9
+  .eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ
+  .yKOB4jkGWu7twu8Ts9zju01E10_CPedLJkoJFCan5J4
+```
+
+给 Token 穿个外套
+
+```js
+Authorization: Bearer
+```
+
 ## 跨域
 
 - JSONP: 利用 `<script>` 标签不受跨域限制的特点，缺点是只能支持 get 请求
@@ -116,8 +186,8 @@
 
 ## 安全
 
-- XSS 攻击: 注入恶意代码
-  - cookie 设置 httpOnly
+- XSS: 跨站脚本攻击
+  - cookie 设置 httpOnly, 禁止 JavaScript 读取某些敏感 Cookie
   - 转义页面上的输入内容和输出内容
 - CSRF: 跨站请求伪造，防护:
   - get 不修改数据

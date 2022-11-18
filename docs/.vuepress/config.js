@@ -91,9 +91,10 @@ module.exports = {
           ]
         },
         {
-          title: '项目优化',
+          title: '工程化',
           collapsable: false,
           children: [
+            ['monitor/monitor.md', '前端监控'],
             ['performance/performance.md', '项目性能优化'],
           ]
         },
@@ -101,6 +102,7 @@ module.exports = {
           title: '全栈基础',
           collapsable: false,
           children: [
+            ['other/node.md', 'Node'],
             ['other/nginx.md', 'Nginx'],
             ['other/docker.md', 'Docker'],
           ]
@@ -127,7 +129,9 @@ module.exports = {
             'instanceof.md',
             'compose.md',
             '模拟setInterval.md',
-            'call、apply、bind.md'
+            'call、apply、bind.md',
+            '发布订阅模式.md',
+            '扁平数组与JSON树结构互转.md'
           ]
         },
       ]

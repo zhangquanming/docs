@@ -12,3 +12,5 @@
 - [compose](/code/compose.html)
 - [模拟 setInterval](/code/模拟setInterval.html)
 - [call、apply、bind](/code/call、apply、bind.html)
+- [发布订阅模式](/code/发布订阅模式.html)
+- [扁平数组与 JSON 树结构互转](/code/扁平数组与JSON树结构互转.html)
