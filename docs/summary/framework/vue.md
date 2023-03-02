@@ -15,9 +15,6 @@ nextTick 主要使用了宏任务和微任务。 根据执行环境分别尝试�
 
 - 作用： 实现组件的缓存，保持组件的状态，以避免反复渲染导致的性能问题。需要缓存组件频繁切换，不需要重复渲染，如：tabs 标签页。
 - 原理： `Vue.js` 内部将 `DOM` 节点抽象成一个个的 `Vnode` 节点，`keep-alive` 组件的缓存也是基于 `Vnode` 的而不是直接存储`DOM`结构。它将满足条件 `(pruneCache与pruneCache)` 的组件在 `cache` 对象中缓存起来，在需要重新渲染的时候在 `cache` 对象中取出再重新渲染。
-  ::: tip
-  nextTick 主要使用了宏任务和微任务。 根据执行环境分别尝试采用 `Promise`、`MutationObserver`、`setImmediate`，如果以上都不行则采用 `setTimeout` 定义了一个异步方法，多次调用 nextTick 会将方法存入队列中，通过这个异步方法清空当前队列。
-  :::
 
 ## 生命周期
 
