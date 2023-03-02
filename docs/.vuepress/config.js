@@ -1,7 +1,7 @@
 module.exports = {
   base: '/',
   dest: 'dist',
-  title: '张全明的笔记',
+  title: '全明笔记',
   description: '张全明的个人笔记',
   port: 8000,
   head: [
