@@ -96,9 +96,7 @@ let foo = function () {
 
 #### 什么是闭包？
 
-函数执行后返回结果是一个内部函数，并被外部变量所应用，如果内部函数持有被执行函数作用域的变量，既形成闭包。
-
-可以在内部函数访问到外部函数作用域。使用闭包,一可以读取函数中的变量，二可以将函数中的变量储存在内存中，保护变量不被污染。正因为变量储存在内存中，会对内存消耗，所以不能滥用闭包，会影响网页性能，造成内存泄漏。但不需要使用闭包是，应及时释放内存，可将变量赋值为 null。
+闭包是指有权访问另一个函数作用域中的变量的函数。
 
 #### 闭包原理
 
@@ -275,15 +273,11 @@ console.log(toString.call(null)) //[object Null]
 
 ```js
 let class2type = {}
-'Array Date RegExp Object Error'
-  .split(' ')
-  .forEach((e) => (class2type['[object ' + e + ']'] = e.toLowerCase()))
+'Array Date RegExp Object Error'.split(' ').forEach((e) => (class2type['[object ' + e + ']'] = e.toLowerCase()))
 
 function type(obj) {
   if (obj == null) return String(obj)
-  return typeof obj === 'object'
-    ? class2type[Object.prototype.toString.call(obj)] || 'object'
-    : typeof obj
+  return typeof obj === 'object' ? class2type[Object.prototype.toString.call(obj)] || 'object' : typeof obj
 }
 ```
 

@@ -31,6 +31,8 @@
 - [一次弄懂 Event Loop（彻底解决此类面试问题）](https://juejin.cn/post/6844903764202094606)
 - [浏览器与 Node 的事件循环(Event Loop)有何区别?](https://zhuanlan.zhihu.com/p/54882306)
 - [从 event loop 规范探究 javaScript 异步及浏览器更新渲染时机](https://github.com/aooy/blog/issues/5)
+- [「硬核 JS」一次搞懂 JS 运行机制](https://juejin.cn/post/6844904050543034376)
+- [「硬核 JS」你真的了解垃圾回收机制吗](https://juejin.cn/post/6981588276356317214)
 
 ## TS
 
