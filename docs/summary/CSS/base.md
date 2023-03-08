@@ -46,6 +46,41 @@ CSS position 属性用于指定一个元素在文档中的定位方式。
 
 - sticky
   - 粘性定位，该值总是创建一个新的层叠上下文（stacking context）,该定位基于用户滚动的位置。它的行为就像 `position:relative`; 而当页面滚动超出目标区域时，它的表现就像 `position:fixed`;，它会固定在目标位置。
+  
+## flex
+
+<img :src="$withBase('/assets/flex.png')" alt="foo">
+
+在 flex 容器中默认存在两条轴，水平主轴(main axis)和垂直的交叉轴(cross axis)，在容器中每个单元被称之为 flex item。
+
+- `display: flex | inline-flex`
+
+::: warning
+当时设置 flex 布局之后，子元素的 float、clear、vertical-align 的属性将会失效。
+:::
+
+#### 容器属性
+
+- `flex-direction: row | row-reverse | column | column-reverse;` (决定主轴方向)
+- `flex-wrap: nowrap | wrap | wrap-reverse;`（决定容器内项目是否可换行）
+- `flex-flow: <flex-direction> || <flex-wrap>;`（flex-direction 和 flex-wrap 的简写形式）
+- `justify-content: flex-start | flex-end | center | space-between | space-around;` (定义了项目在主轴的对齐方式)
+- `align-items: flex-start | flex-end | center | baseline | stretch;` (定义了项目在交叉轴上的对齐方式)
+- `align-content: flex-start | flex-end | center | space-between | space-around | stretch;` (定义了多根轴线的对齐方式，如果项目只有一根轴线，那么该属性将不起作用)
+
+#### flex item 属性
+
+- `order: <integer>;` (定义项目在容器中的排列顺序)
+- `flex-basis: <length> | auto;` (指定 flex 元素在主轴方向上的初始大小（基础尺寸）,默认值为 auto，即项目本身大小)
+- `flex-grow: <number>;` （定义项目的放大比例，默认值为 0）
+- `flex-shrink: <number>;` (定义了项目的缩小比例，默认值为 1)
+- `flex: none | auto | [< 'flex-grow' > < 'flex-shrink' >? || < 'flex-basis' > ];` （flex-grow, flex-shrink 和 flex-basis的简写）
+	- flex 默认值为 0 1 auto
+	- flex: none，等同于 flex: 0 0 auto;
+	- flex: auto，等同于 flex: 1 1 auto;
+	- flex: 1，等同于 flex: 1 1 0%;
+	- flex: 0，等同于 flex 0 1 0%;
+- `align-self: auto | flex-start | flex-end | center | baseline | stretch;` (允许单个项目有与其他项目不一样的对齐方式)
 
 ## 层叠上下文
 
