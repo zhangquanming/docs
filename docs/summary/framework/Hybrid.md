@@ -20,7 +20,7 @@ Hybrid App，俗称 **混合应用**，即混合了 Native 技术 与 Web 技术
   - **优势**: 用户体验好于常规 Webview 方案，且通常依托的平台也能提供更为友好的开发调试体验以及功能；
   - **劣势**: 需要依托于特定的平台的规范限定
 
-## Webviev
+## Webview
 
 Webview 是 Native App 中内置的一款基于 Webkit 内核 的浏览器，主要由两部分组成:
 

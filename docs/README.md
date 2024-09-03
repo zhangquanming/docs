@@ -12,5 +12,5 @@ features:
     details: 汇总一些常见、高频工具类的封装。
   - title: 手写代码
     details: JavaScript手写代码系列，比如手写节流，防抖，深拷贝等等。
-footer: Copyright © 2020-2022 zhangquanming All Rights Reserved.
+footer: Copyright © 2020-2024 zhangquanming All Rights Reserved.
 ---
