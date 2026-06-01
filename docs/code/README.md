@@ -6,6 +6,8 @@
 - [节流](/code/节流.html)
 - [浅比较与深比较](/code/浅比较与深比较.html)
 - [浅拷贝与深拷贝](/code/浅拷贝与深拷贝.html)
+- [jsonp](/code/jsonp.html)
+- [请求并发](/code/请求并发.html)
 - [Promise](/code/Promise.html)
 - [new](/code/new.html)
 - [instanceof](/code/instanceof.html)

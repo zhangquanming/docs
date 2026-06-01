@@ -77,6 +77,10 @@ nextTick 主要使用了宏任务和微任务。 根据执行环境分别尝试�
   - 遍历 `patch`， 把需要更改的节点取出来
   - 局部更新 `dom`
 
+- Vue2的核心Diff算法采用了`双端比较`的算法(掐头去尾)
+- Vue3的核心Diff算法采用了`动态规划` 的思想求解最长递增子序列
+
+
 ## Proxy 相比于 defineProperty 的优势
 
 - 数组变化也能监听到
@@ -91,6 +95,21 @@ let reactiveData = new Proxy(data, {
   // ...
 })
 ```
+
+## Vue3 和 Vue2 的区别
+
+- 源码组织方式变化：使用 TS 重写
+- 支持 Composition API：基于函数的API，更加灵活组织组件逻辑（vue2用的是options api）
+- 响应式系统提升：Vue3中响应式数据原理改成proxy，可监听动态新增删除属性，以及数组变化
+- 编译优化：vue2通过标记静态根节点优化diff，Vue3 标记和提升所有静态根节点，diff的时候只需要对比动态节点内容
+- 打包体积优化：移除了一些不常用的api（inline-template、filter）
+- 生命周期的变化：使用setup代替了之前的beforeCreate和created
+- Vue3 的 template 模板支持多个根标签
+- Vuex状态管理：创建实例的方式改变,Vue2为new Store , Vue3为createStore
+- Route 获取页面实例与路由信息：vue2通过this获取router实例，vue3通过使用 getCurrentInstance/ userRoute和userRouter方法获取当前组件实例
+- Props 的使用变化：vue2 通过 this 获取 props 里面的内容，vue3 直接通过 props
+- 父子组件传值：vue3 在向父组件传回数据时，如使用的自定义名称，如 backData，则需要在 emits 中定义一下
+
 
 ## vue-router
 

@@ -124,6 +124,8 @@ module.exports = {
             '节流.md',
             '浅比较与深比较.md',
             '浅拷贝与深拷贝.md',
+            'jsonp.md',
+            '请求并发.md',
             'Promise.md',
             'new.md',
             'instanceof.md',
